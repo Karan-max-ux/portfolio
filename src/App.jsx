@@ -5,7 +5,6 @@ import About from './components/About';
 import Skills from './components/Skills';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
-import Hackathons from './components/Hackathons';
 import Certifications from './components/Certifications';
 import Education from './components/Education';
 import Contact from './components/Contact';
@@ -29,7 +28,6 @@ export default function App() {
       'skills',
       'experience',
       'projects',
-      'hackathons',
       'certifications',
       'education',
       'contact'
@@ -81,7 +79,6 @@ export default function App() {
         <Skills />
         <Experience />
         <Projects onOpenPlaceholder={openPlaceholderModal} />
-        <Hackathons onOpenPlaceholder={openPlaceholderModal} />
         <Certifications onOpenPlaceholder={openPlaceholderModal} />
         <Education />
         <Contact onOpenPlaceholder={openPlaceholderModal} />

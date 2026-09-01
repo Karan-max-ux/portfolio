@@ -70,7 +70,6 @@ d:/Potfolio/
 │   │   ├── Skills.jsx           # Categorized interactive tech skill cards
 │   │   ├── Experience.jsx       # InternsVeda internship timeline card
 │   │   ├── Projects.jsx         # Featured projects with live demo & repo links
-│   │   ├── Hackathons.jsx       # Dedicated sprint build cards with achievements
 │   │   ├── Certifications.jsx   # Validated certifications cards
 │   │   ├── Education.jsx        # Lovely Professional University CSE details
 │   │   ├── Contact.jsx          # Contact details & validated messaging form

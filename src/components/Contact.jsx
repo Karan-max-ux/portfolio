@@ -91,7 +91,7 @@ export default function Contact({ onOpenPlaceholder }) {
         <div className="flex flex-col items-center text-center mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-xs font-mono text-emerald-400 mb-3">
             <MessageSquare className="w-3.5 h-3.5" />
-            <span>08. GET_IN_TOUCH</span>
+            <span>07. GET_IN_TOUCH</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
             {contactInfo.heading}

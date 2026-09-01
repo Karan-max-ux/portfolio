@@ -22,12 +22,11 @@
    - [4. Skills & Technologies (`Skills.jsx`)](#4-skills--technologies-skillsjsx)
    - [5. Work Experience (`Experience.jsx`)](#5-work-experience-experiencejsx)
    - [6. Featured Projects (`Projects.jsx`)](#6-featured-projects-projectsjsx)
-   - [7. Hackathon Builds (`Hackathons.jsx`)](#7-hackathon-builds-hackathonsjsx)
-   - [8. Verified Certifications (`Certifications.jsx`)](#8-verified-certifications-certificationsjsx)
-   - [9. Academic Background (`Education.jsx`)](#9-academic-background-educationjsx)
-   - [10. Contact Section (`Contact.jsx`)](#10-contact-section-contactjsx)
-   - [11. Footer (`Footer.jsx`)](#11-footer-footerjsx)
-   - [12. Floating & Modal UX (`ScrollToTop.jsx` & `PlaceholderModal.jsx`)](#12-floating--modal-ux)
+   - [7. Verified Certifications (`Certifications.jsx`)](#7-verified-certifications-certificationsjsx)
+   - [8. Academic Background (`Education.jsx`)](#8-academic-background-educationjsx)
+   - [9. Contact Section (`Contact.jsx`)](#9-contact-section-contactjsx)
+   - [10. Footer (`Footer.jsx`)](#10-footer-footerjsx)
+   - [11. Floating & Modal UX (`ScrollToTop.jsx` & `PlaceholderModal.jsx`)](#11-floating--modal-ux)
 4. [Responsive Design & Breakpoint Behavior](#4-responsive-design--breakpoint-behavior)
 5. [Interactive States & Micro-Interactions Matrix](#5-interactive-states--micro-interactions-matrix)
 6. [Data Architecture & Content Centralization](#6-data-architecture--content-centralization)
@@ -108,7 +107,7 @@ The interface relies on **Lucide React** icons rendered in consistent 16px (`w-4
   - Terminal icon inside an emerald box.
   - Text: `Karan.dev` with a small subtitle `FULL-STACK ENGINEER`.
 - **Navigation Links:**
-  - 9 Section Anchors: *Home, About, Skills, Experience, Projects, Hackathons, Certifications, Education, Contact*.
+  - 8 Section Anchors: *Home, About, Skills, Experience, Projects, Certifications, Education, Contact*.
   - Active Section Spy: Highlighted with an emerald indicator pill when user scrolls into section.
   - Smooth Scrolling: JavaScript scroll calculation with 80px offset for fixed navbar clearance.
 - **Action CTA:** Top-right "Contact Me" button with an arrow up-right icon.
@@ -231,22 +230,8 @@ The interface relies on **Lucide React** icons rendered in consistent 16px (`w-4
 
 ---
 
-### 7. Hackathon Builds (`Hackathons.jsx`)
-- **Section Tag:** `[05. HACKATHON_BUILDS]` with trophy icon.
-- **Section Heading:** `"Hackathons & Sprint Engineering"`.
-- **Card 1: BudgetWise (48-Hour Hackathon)**
-  - Theme: Emerald accent styling with ambient glow.
-  - Role Contribution: Engineered role-based access control, JWT authentication, and Chart.js analytics under 48h constraints.
-  - 3 Core Takeaways: Security separation, dynamic charts, full-stack MongoDB-to-React integration.
-- **Card 2: SwiftService Now (36-Hour Hackathon)**
-  - Theme: Cyan accent styling with ambient glow.
-  - Headline Metric: **Improved fulfillment time by 20%**.
-  - 3 Core Takeaways: Rapid on-demand request flow, AI matching integration, high-velocity delivery.
-
----
-
-### 8. Verified Certifications (`Certifications.jsx`)
-- **Section Tag:** `[06. VERIFIED_CREDENTIALS]` with award icon.
+### 7. Verified Certifications (`Certifications.jsx`)
+- **Section Tag:** `[05. VERIFIED_CREDENTIALS]` with award icon.
 - **Section Heading:** `"Certifications & Assessments"`.
 - **Card 1:** *Certificate of Participation in Round 1 - Online MCQ Assessment (Coding of Adobe India Hackathon)*
   - Type: Hackathon Assessment | Icon: Award
@@ -260,8 +245,8 @@ The interface relies on **Lucide React** icons rendered in consistent 16px (`w-4
 
 ---
 
-### 9. Academic Background (`Education.jsx`)
-- **Section Tag:** `[07. ACADEMIC_BACKGROUND]` with graduation cap icon.
+### 8. Academic Background (`Education.jsx`)
+- **Section Tag:** `[06. ACADEMIC_BACKGROUND]` with graduation cap icon.
 - **Section Heading:** `"Education & Foundation"`.
 - **Card Content:**
   - **Institution:** Lovely Professional University (LPU)
@@ -274,8 +259,8 @@ The interface relies on **Lucide React** icons rendered in consistent 16px (`w-4
 
 ---
 
-### 10. Contact Section (`Contact.jsx`)
-- **Section Tag:** `[08. GET_IN_TOUCH]` with message icon.
+### 9. Contact Section (`Contact.jsx`)
+- **Section Tag:** `[07. GET_IN_TOUCH]` with message icon.
 - **Section Heading:** `"Let's Build Something Together"`.
 - **Left Column — Quick Contact Cards:**
   1. **Email Card:** Direct email address `karansingh2436nda@gmail.com` with a 1-click **Copy to Clipboard** button. Shows dynamic "Copied!" feedback state.
@@ -296,9 +281,9 @@ The interface relies on **Lucide React** icons rendered in consistent 16px (`w-4
 
 ---
 
-### 11. Footer (`Footer.jsx`)
+### 10. Footer (`Footer.jsx`)
 - **Brand Column:** `Karan Singh`, title, short bio summary, and social links (LinkedIn, GitHub, Email).
-- **Navigation Column:** 9 quick-link sitemap anchors with smooth-scroll handlers.
+- **Navigation Column:** 8 quick-link sitemap anchors with smooth-scroll handlers.
 - **Contact Info Column:** Direct email, location, and quick contact action.
 - **Bottom Bar:**
   - Copyright: `© 2024-2026 Karan Singh. Built with React & Tailwind CSS.`
@@ -306,7 +291,7 @@ The interface relies on **Lucide React** icons rendered in consistent 16px (`w-4
 
 ---
 
-### 12. Floating & Modal UX
+### 11. Floating & Modal UX
 - **`ScrollToTop.jsx`:**
   - Fixed floating action button (`fixed bottom-8 right-8 z-40`).
   - Automatically hidden at top of page; fades into view when scroll > 400px.

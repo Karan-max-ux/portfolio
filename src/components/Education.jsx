@@ -19,7 +19,7 @@ export default function Education() {
         <div className="flex flex-col items-center text-center mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-xs font-mono text-emerald-400 mb-3">
             <GraduationCap className="w-3.5 h-3.5" />
-            <span>07. ACADEMIC_BACKGROUND</span>
+            <span>06. ACADEMIC_BACKGROUND</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
             Education & <span className="text-gradient-emerald">Foundation</span>
