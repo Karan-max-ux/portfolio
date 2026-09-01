@@ -1,6 +1,7 @@
 import React from 'react';
 import { footerData, contactData } from '../data/portfolioData';
 import { ArrowUp } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export default function Footer({ onOpenPlaceholder }) {
   const scrollToTop = () => {
@@ -11,8 +12,14 @@ export default function Footer({ onOpenPlaceholder }) {
   };
 
   return (
-    <footer className="border-t border-white/10 bg-black py-16 relative">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+    <footer className="border-t border-white/10 bg-transparent py-16 relative overflow-hidden">
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6"
+      >
         
         {/* Personal Sign-off Message */}
         <div className="space-y-1.5">
@@ -54,13 +61,15 @@ export default function Footer({ onOpenPlaceholder }) {
 
         {/* Back to Top */}
         <div className="pt-2">
-          <button
+          <motion.button
             onClick={scrollToTop}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-[#141414] border border-white/15 text-xs font-mono text-[#888888] hover:text-white hover:border-white/35 transition-colors cursor-pointer"
           >
             <ArrowUp className="w-3.5 h-3.5 text-[#00D6A3]" />
             <span>Back to top</span>
-          </button>
+          </motion.button>
         </div>
 
         {/* Subtext Tagline & Copyright */}
@@ -69,7 +78,7 @@ export default function Footer({ onOpenPlaceholder }) {
           <p className="font-mono text-[11px] text-[#555555]">{footerData.copyright}</p>
         </div>
 
-      </div>
+      </motion.div>
     </footer>
   );
 }
