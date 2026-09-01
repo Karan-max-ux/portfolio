@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { navLinks } from '../data/portfolioData';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Navbar({ activeSection }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [hoveredLink, setHoveredLink] = useState(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,10 +43,12 @@ export default function Navbar({ activeSection }) {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           
-          {/* Brand Logo */}
-          <a 
+          {/* Brand Logo with subtle motion */}
+          <motion.a 
             href="#home"
             onClick={(e) => handleNavClick(e, '#home')}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
             className="flex items-center gap-2.5 group cursor-pointer"
             aria-label="Karan Singh - Home"
           >
@@ -59,39 +63,74 @@ export default function Navbar({ activeSection }) {
                 Full-Stack
               </span>
             </div>
-          </a>
+          </motion.a>
 
-          {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-1">
+          {/* Desktop Navigation Links with Framer Motion Sliding Pill */}
+          <nav 
+            className="hidden md:flex items-center gap-1 relative"
+            onMouseLeave={() => setHoveredLink(null)}
+          >
             {navLinks.map((link) => {
               const isActive = activeSection === link.href.replace('#', '');
+              const isHovered = hoveredLink === link.href;
+
               return (
-                <a
+                <motion.a
                   key={link.name}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-sans font-medium transition-colors duration-150 ${
+                  onMouseEnter={() => setHoveredLink(link.href)}
+                  whileTap={{ scale: 0.95 }}
+                  className={`relative px-3.5 py-1.5 rounded-lg text-xs font-sans font-medium transition-colors duration-200 cursor-pointer ${
                     isActive
-                      ? 'text-[#00D6A3] bg-[#00D6A3]/10 border border-[#00D6A3]/30'
-                      : 'text-[#A1A1A1] hover:text-white hover:bg-white/5 border border-transparent'
+                      ? 'text-[#00D6A3]'
+                      : 'text-[#A1A1A1] hover:text-white'
                   }`}
                 >
-                  {link.name}
-                </a>
+                  {/* Sliding Active Indicator Pill (Motion Transition) */}
+                  {isActive && (
+                    <motion.span
+                      layoutId="activeNavBackground"
+                      className="absolute inset-0 rounded-lg bg-[#00D6A3]/10 border border-[#00D6A3]/35 shadow-[0_0_15px_rgba(0,214,163,0.2)]"
+                      transition={{
+                        type: 'spring',
+                        stiffness: 420,
+                        damping: 32,
+                      }}
+                    />
+                  )}
+
+                  {/* Hover Pill Motion for Non-Active Items */}
+                  {!isActive && isHovered && (
+                    <motion.span
+                      layoutId="hoverNavBackground"
+                      className="absolute inset-0 rounded-lg bg-white/5 border border-white/10"
+                      transition={{
+                        type: 'spring',
+                        stiffness: 450,
+                        damping: 35,
+                      }}
+                    />
+                  )}
+
+                  <span className="relative z-10 select-none">{link.name}</span>
+                </motion.a>
               );
             })}
           </nav>
 
-          {/* Desktop Right CTA */}
+          {/* Desktop Right CTA with Motion */}
           <div className="hidden md:flex items-center gap-3">
-            <a
+            <motion.a
               href="#contact"
               onClick={(e) => handleNavClick(e, '#contact')}
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-sans font-semibold bg-[#141414] hover:bg-[#1C1C1C] text-white border border-white/15 hover:border-[#00D6A3]/60 transition-all active:scale-95 cursor-pointer"
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.96 }}
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-sans font-semibold bg-[#141414] hover:bg-[#1C1C1C] text-white border border-white/15 hover:border-[#00D6A3]/60 transition-colors active:scale-95 cursor-pointer shadow-sm"
             >
               <span>Let's Talk</span>
               <ArrowUpRight className="w-3.5 h-3.5 text-[#00D6A3]" />
-            </a>
+            </motion.a>
           </div>
 
           {/* Mobile Menu Trigger */}
@@ -108,36 +147,44 @@ export default function Navbar({ activeSection }) {
         </div>
 
         {/* Mobile Drawer */}
-        {mobileMenuOpen && (
-          <div className="md:hidden mt-3 pt-3 pb-4 border-t border-white/10 bg-[#0D0D0D]/95 backdrop-blur-lg rounded-xl p-4 shadow-2xl border border-white/10">
-            <div className="flex flex-col gap-1.5">
-              {navLinks.map((link) => {
-                const isActive = activeSection === link.href.replace('#', '');
-                return (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    onClick={(e) => handleNavClick(e, link.href)}
-                    className={`px-3.5 py-2 rounded-lg text-sm font-sans font-medium transition-colors ${
-                      isActive
-                        ? 'text-[#00D6A3] bg-[#00D6A3]/10 border border-[#00D6A3]/30'
-                        : 'text-[#A1A1A1] hover:text-white hover:bg-white/5'
-                    }`}
-                  >
-                    {link.name}
-                  </a>
-                );
-              })}
-              <a
-                href="#contact"
-                onClick={(e) => handleNavClick(e, '#contact')}
-                className="mt-2 text-center py-2.5 rounded-lg text-xs font-sans font-semibold bg-[#00D6A3] text-black shadow-sm"
-              >
-                Let's Talk ↗
-              </a>
-            </div>
-          </div>
-        )}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div 
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2 }}
+              className="md:hidden mt-3 pt-3 pb-4 border-t border-white/10 bg-[#0D0D0D]/95 backdrop-blur-lg rounded-xl p-4 shadow-2xl border border-white/10"
+            >
+              <div className="flex flex-col gap-1.5">
+                {navLinks.map((link) => {
+                  const isActive = activeSection === link.href.replace('#', '');
+                  return (
+                    <a
+                      key={link.name}
+                      href={link.href}
+                      onClick={(e) => handleNavClick(e, link.href)}
+                      className={`px-3.5 py-2 rounded-lg text-sm font-sans font-medium transition-colors ${
+                        isActive
+                          ? 'text-[#00D6A3] bg-[#00D6A3]/10 border border-[#00D6A3]/30'
+                          : 'text-[#A1A1A1] hover:text-white hover:bg-white/5'
+                      }`}
+                    >
+                      {link.name}
+                    </a>
+                  );
+                })}
+                <a
+                  href="#contact"
+                  onClick={(e) => handleNavClick(e, '#contact')}
+                  className="mt-2 text-center py-2.5 rounded-lg text-xs font-sans font-semibold bg-[#00D6A3] text-black shadow-sm"
+                >
+                  Let's Talk ↗
+                </a>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
       </div>
     </header>
