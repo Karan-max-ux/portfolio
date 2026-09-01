@@ -8,47 +8,49 @@ export default {
   theme: {
     extend: {
       colors: {
-        dark: {
-          950: '#06090e',
-          900: '#0b111a',
-          850: '#0f1724',
-          800: '#152033',
-          700: '#1e2d45',
-          600: '#2d3f5d'
+        // Base dark neutrals (approx 80%)
+        bg: {
+          DEFAULT: '#080C10',
+          subtle: '#0E141B',
         },
-        primary: {
-          50: '#ecfdf5',
-          100: '#d1fae5',
-          400: '#34d399',
-          500: '#10b981',
-          600: '#059669',
+        surface: {
+          DEFAULT: '#121A22',
+          button: '#101820',
+          elevated: '#16222C',
         },
+        border: {
+          DEFAULT: '#1D2A33',
+          button: '#263640',
+          subtle: '#152028',
+          accent: 'rgba(0, 214, 163, 0.25)',
+        },
+        // Accents: Signature Green (~15%), Cyan (~4%), Purple (~1%)
         accent: {
-          cyan: '#06b6d4',
-          blue: '#3b82f6',
-          indigo: '#6366f1',
-          purple: '#8b5cf6',
-          emerald: '#10b981'
-        }
+          green: '#00D6A3', // Personal brand signature
+          cyan: '#22C7D8',  // Secondary accent
+          purple: '#9B8AFB', // Rare highlight
+        },
+        // Text Colors
+        content: {
+          primary: '#F1F5F3',
+          secondary: '#A6B3BA',
+          muted: '#62717B',
+        },
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'monospace'],
       },
       backgroundImage: {
-        'grid-pattern': 'radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px)',
-        'hero-gradient': 'radial-gradient(circle at 50% 20%, rgba(16, 185, 129, 0.12) 0%, rgba(6, 182, 212, 0.06) 40%, transparent 70%)',
-        'card-gradient': 'linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%)',
+        'hero-radial': 'radial-gradient(circle at 50% 15%, rgba(0, 214, 163, 0.06) 0%, transparent 65%)',
+        'subtle-grid': 'radial-gradient(circle, rgba(255, 255, 255, 0.03) 1px, transparent 1px)',
       },
-      animation: {
-        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'float': 'float 6s ease-in-out infinite',
+      boxShadow: {
+        'green-subtle': '0 0 20px -5px rgba(0, 214, 163, 0.15)',
+        'card-subtle': '0 4px 20px -2px rgba(0, 0, 0, 0.4)',
       },
-      keyframes: {
-        float: {
-          '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-10px)' },
-        }
+      transitionTimingFunction: {
+        'subtle': 'cubic-bezier(0.2, 0.8, 0.2, 1)',
       }
     },
   },

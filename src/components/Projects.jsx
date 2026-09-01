@@ -1,196 +1,225 @@
 import React from 'react';
 import { projectsData } from '../data/portfolioData';
 import { 
-  FolderGit2, 
-  ExternalLink, 
+  ArrowUpRight, 
   Github, 
-  CheckCircle2, 
-  Clock, 
-  TrendingUp, 
+  Layers, 
   Sparkles,
-  Layers,
-  Image as ImageIcon
+  CheckCircle2,
+  ExternalLink,
+  Code2
 } from 'lucide-react';
 
 export default function Projects({ onOpenPlaceholder }) {
   return (
-    <section id="projects" className="py-20 relative bg-dark-900/40">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="py-24 border-t border-border-subtle relative">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-xs font-mono text-emerald-400 mb-3">
-            <FolderGit2 className="w-3.5 h-3.5" />
-            <span>04. FEATURED_PROJECTS</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Featured <span className="text-gradient-emerald">Projects</span>
+        <div className="mb-16">
+          <span className="text-xs font-mono uppercase tracking-widest text-accent-green mb-2 block">
+            Featured Work
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-content-primary tracking-tight font-sans">
+            Projects I've Built & Shipped
           </h2>
-          <p className="text-sm sm:text-base text-slate-400 max-w-xl mt-3">
-            Real-world full-stack and AI-assisted solutions engineered under high-intensity hackathon timelines.
+          <p className="text-sm sm:text-base text-content-secondary max-w-xl mt-3 font-sans">
+            Focused on solving practical problems, understanding system internals, and building maintainable full-stack software.
           </p>
-          <div className="w-12 h-1 bg-emerald-500 rounded-full mt-3" />
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {projectsData.map((project) => (
-            <div
-              key={project.id}
-              className="glass-panel glass-panel-hover rounded-2xl border border-slate-800 flex flex-col justify-between overflow-hidden group shadow-xl"
-            >
-              <div>
-                {/* Project Header Banner / Screenshot Placeholder */}
-                <div className="p-6 bg-gradient-to-b from-dark-950 to-dark-900/90 border-b border-slate-800/80 relative">
+        {/* Alternating Showcases */}
+        <div className="space-y-20">
+          {projectsData.map((project, idx) => {
+            const isEven = idx % 2 === 1;
+
+            return (
+              <div 
+                key={project.id}
+                className="rounded-2xl bg-surface border border-border overflow-hidden transition-all duration-300 hover:border-border-button shadow-card-subtle"
+              >
+                <div className={`grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 p-6 sm:p-10 items-center`}>
                   
-                  {/* Category & Hackathon Tag */}
-                  <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
-                    <span className="text-xs font-mono font-medium px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
-                      {project.category}
-                    </span>
-                    <span className="flex items-center gap-1 text-xs font-mono text-cyan-400 bg-cyan-500/10 px-2.5 py-1 rounded-md border border-cyan-500/30">
-                      <Clock className="w-3.5 h-3.5" />
-                      {project.hackathonTag}
-                    </span>
-                  </div>
-
-                  {/* Project Title */}
-                  <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors">
-                    {project.title}
-                  </h3>
-
-                  {/* Tagline */}
-                  <p className="text-xs font-mono text-slate-400 mb-4">
-                    {project.tagline}
-                  </p>
-
-                  {/* Screenshot Mockup Container */}
-                  <div 
-                    onClick={() => onOpenPlaceholder({
-                      title: `${project.title} Screenshot Preview`,
-                      fieldName: `project.screenshotPlaceholder`,
-                      message: `A custom UI screenshot or preview image for ${project.title} can be placed here.`
-                    })}
-                    className="w-full h-36 rounded-xl bg-dark-950/80 border border-dashed border-slate-700/80 hover:border-emerald-500/50 flex flex-col items-center justify-center gap-2 cursor-pointer transition-colors group/preview"
-                  >
-                    <div className="p-2.5 rounded-lg bg-slate-900 text-slate-400 group-hover/preview:text-emerald-400 group-hover/preview:bg-emerald-500/10 transition-all">
-                      <ImageIcon className="w-5 h-5" />
+                  {/* Content Column */}
+                  <div className={`space-y-6 ${isEven ? 'lg:col-span-6 lg:order-2' : 'lg:col-span-6 lg:order-1'}`}>
+                    
+                    {/* Top Row: Number & Tech Stack */}
+                    <div className="flex items-center gap-3">
+                      <span className="font-mono text-2xl font-bold text-accent-green/80">
+                        {project.number}
+                      </span>
+                      <span className="text-border">/</span>
+                      <span className="text-xs font-mono text-content-muted">
+                        Personal Project
+                      </span>
                     </div>
-                    <span className="text-xs font-mono text-slate-400 group-hover/preview:text-slate-200">
-                      {project.screenshotPlaceholder}
-                    </span>
-                  </div>
 
-                </div>
-
-                {/* Body Content */}
-                <div className="p-6 sm:p-7 space-y-5">
-                  {/* Description */}
-                  <p className="text-sm text-slate-300 leading-relaxed">
-                    {project.description}
-                  </p>
-
-                  {/* Key Achievement (if present) */}
-                  {project.achievement && (
-                    <div className="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-start gap-2.5">
-                      <TrendingUp className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                      <p className="text-xs text-emerald-300 font-medium">
-                        <strong className="font-semibold text-emerald-200">Key Outcome: </strong>
-                        {project.achievement}
+                    {/* Title & Tagline */}
+                    <div>
+                      <h3 className="text-2xl sm:text-3xl font-bold text-content-primary font-sans mb-1.5">
+                        {project.name}
+                      </h3>
+                      <p className="text-xs font-mono text-content-muted">
+                        {project.tagline}
                       </p>
                     </div>
-                  )}
 
-                  {/* Key Features List */}
-                  <div>
-                    <h4 className="text-xs font-mono uppercase tracking-wider text-slate-400 mb-2.5 flex items-center gap-1.5">
-                      <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
-                      Key Features
-                    </h4>
-                    <ul className="space-y-2">
-                      {project.keyFeatures.map((feature, fIdx) => (
-                        <li key={fIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-300">
-                          <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                    {/* Short Description */}
+                    <p className="text-sm sm:text-base text-content-secondary leading-relaxed font-sans">
+                      {project.description}
+                    </p>
 
-                  {/* Confirmed Technologies */}
-                  <div>
-                    <h4 className="text-xs font-mono uppercase tracking-wider text-slate-400 mb-2 flex items-center gap-1.5">
-                      <Layers className="w-3.5 h-3.5 text-emerald-400" />
-                      Confirmed Technologies
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
+                    {/* Why I Built It (Crucial Storytelling Requirement) */}
+                    <div className="rounded-xl bg-bg-subtle/80 border border-border-subtle p-4 space-y-1.5">
+                      <div className="text-xs font-mono font-medium text-accent-green flex items-center gap-1.5">
+                        <span>Why I built it:</span>
+                      </div>
+                      <p className="text-xs sm:text-sm text-content-secondary font-sans leading-relaxed">
+                        "{project.whyIBuiltIt}"
+                      </p>
+                    </div>
+
+                    {/* What I Learned */}
+                    {project.whatILearned && (
+                      <div className="rounded-xl bg-bg-subtle/40 border border-border-subtle p-4 space-y-1.5">
+                        <div className="text-xs font-mono font-medium text-accent-cyan flex items-center gap-1.5">
+                          <span>What I learned:</span>
+                        </div>
+                        <p className="text-xs sm:text-sm text-content-secondary font-sans leading-relaxed">
+                          {project.whatILearned}
+                        </p>
+                      </div>
+                    )}
+
+                    {/* Tech Stack Pills */}
+                    <div className="flex flex-wrap gap-2 pt-1">
                       {project.technologies.map((tech, tIdx) => (
                         <span
                           key={tIdx}
-                          className="px-2.5 py-1 rounded-md bg-dark-950 text-slate-300 border border-slate-800 text-xs font-mono"
+                          className="px-2.5 py-1 rounded-md bg-bg text-content-secondary border border-border-subtle text-xs font-mono"
                         >
                           {tech}
                         </span>
                       ))}
                     </div>
+
+                    {/* Action Buttons */}
+                    <div className="flex flex-wrap items-center gap-3 pt-2">
+                      {project.liveUrl ? (
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-accent-green text-bg font-sans text-xs font-semibold hover:shadow-green-subtle transition-all active:scale-95"
+                        >
+                          <span>Live Demo</span>
+                          <ArrowUpRight className="w-3.5 h-3.5" />
+                        </a>
+                      ) : (
+                        <button
+                          onClick={() => onOpenPlaceholder({
+                            title: `${project.name} Live Demo`,
+                            fieldName: `project.liveUrl`,
+                            message: `Live deployment preview for ${project.name}. You can attach your hosted domain link in src/data/portfolioData.js.`
+                          })}
+                          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-accent-green/10 text-accent-green border border-accent-green/25 font-sans text-xs font-medium hover:bg-accent-green/20 transition-all"
+                        >
+                          <span>Live Demo (Preview)</span>
+                          <ArrowUpRight className="w-3.5 h-3.5" />
+                        </button>
+                      )}
+
+                      {project.githubUrl ? (
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-surface-button text-content-primary border border-border-button hover:border-border text-xs font-sans font-medium transition-all"
+                        >
+                          <Github className="w-3.5 h-3.5 text-content-secondary" />
+                          <span>Source Code</span>
+                        </a>
+                      ) : (
+                        <button
+                          onClick={() => onOpenPlaceholder({
+                            title: `${project.name} Repository`,
+                            fieldName: `project.githubUrl`,
+                            message: `Source code link for ${project.name}. Configure repository URL in src/data/portfolioData.js.`
+                          })}
+                          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-surface-button text-content-secondary border border-border-button text-xs font-sans font-medium hover:text-content-primary transition-all"
+                        >
+                          <Github className="w-3.5 h-3.5" />
+                          <span>Source Code</span>
+                        </button>
+                      )}
+                    </div>
+
+                  </div>
+
+                  {/* Visual Showcase Card (Mockup / Preview representation) */}
+                  <div className={`${isEven ? 'lg:col-span-6 lg:order-1' : 'lg:col-span-6 lg:order-2'}`}>
+                    <div 
+                      onClick={() => onOpenPlaceholder({
+                        title: `${project.name} Visual Preview`,
+                        fieldName: `project.previewLabel`,
+                        message: `High-resolution screenshots or custom UI graphics for ${project.name} can be linked directly.`
+                      })}
+                      className="group/mockup relative rounded-xl bg-bg border border-border p-5 sm:p-7 min-h-[300px] flex flex-col justify-between cursor-pointer hover:border-border-button transition-all duration-300 overflow-hidden"
+                    >
+                      {/* Window Header */}
+                      <div className="flex items-center justify-between pb-3 border-b border-border-subtle">
+                        <div className="flex items-center gap-1.5">
+                          <span className="w-2.5 h-2.5 rounded-full bg-[#1D2A33]" />
+                          <span className="w-2.5 h-2.5 rounded-full bg-[#1D2A33]" />
+                          <span className="w-2.5 h-2.5 rounded-full bg-[#1D2A33]" />
+                        </div>
+                        <span className="text-[10px] font-mono text-content-muted">
+                          {project.name.toLowerCase()}.app
+                        </span>
+                      </div>
+
+                      {/* Mockup Center Graphic / Information State */}
+                      <div className="py-8 space-y-4">
+                        <div className="flex items-center justify-between p-3.5 rounded-lg bg-surface border border-border-subtle">
+                          <div className="flex items-center gap-2.5">
+                            <div className="w-8 h-8 rounded-md bg-bg flex items-center justify-center text-accent-green">
+                              <Code2 className="w-4 h-4" />
+                            </div>
+                            <div>
+                              <div className="text-xs font-sans font-semibold text-content-primary">
+                                {project.name}
+                              </div>
+                              <div className="text-[10px] font-mono text-content-muted">
+                                Full-Stack MERN Architecture
+                              </div>
+                            </div>
+                          </div>
+                          <span className="text-[10px] font-mono text-accent-green px-2 py-0.5 rounded bg-accent-green/10">
+                            Active
+                          </span>
+                        </div>
+
+                        <div className="p-3.5 rounded-lg bg-surface/50 border border-border-subtle text-xs text-content-muted font-mono leading-relaxed">
+                          // Architecture Highlights<br />
+                          → Modular REST routing & JWT middleware<br />
+                          → Responsive data flows & state sync<br />
+                          → Validated schema structure
+                        </div>
+                      </div>
+
+                      {/* Mockup Footer Caption */}
+                      <div className="pt-2 flex items-center justify-between text-[11px] font-mono text-content-muted group-hover/mockup:text-accent-green transition-colors">
+                        <span>{project.previewLabel}</span>
+                        <ArrowUpRight className="w-3.5 h-3.5" />
+                      </div>
+
+                    </div>
                   </div>
 
                 </div>
               </div>
-
-              {/* Card Footer: Action Buttons */}
-              <div className="p-6 pt-0 flex flex-wrap items-center gap-3">
-                {project.githubUrl ? (
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 min-w-[140px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700/80 hover:border-slate-600 text-xs font-mono font-medium transition-all"
-                  >
-                    <Github className="w-4 h-4 text-slate-300" />
-                    <span>GitHub Repo</span>
-                  </a>
-                ) : (
-                  <button
-                    onClick={() => onOpenPlaceholder({
-                      title: `${project.title} GitHub Repository`,
-                      fieldName: `project.githubUrl`,
-                      message: `Repository link placeholder for ${project.title}. You can attach your GitHub repository URL in src/data/portfolioData.js.`
-                    })}
-                    className="flex-1 min-w-[140px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700/80 hover:border-slate-600 text-xs font-mono font-medium transition-all"
-                  >
-                    <Github className="w-4 h-4 text-slate-300" />
-                    <span>GitHub Repo</span>
-                  </button>
-                )}
-
-                {project.liveUrl ? (
-                  <a
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 min-w-[140px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-dark-950 text-xs font-mono font-semibold shadow-md shadow-emerald-500/20 transition-all"
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                    <span>Live Demo</span>
-                  </a>
-                ) : (
-                  <button
-                    onClick={() => onOpenPlaceholder({
-                      title: `${project.title} Live Demo`,
-                      fieldName: `project.liveUrl`,
-                      message: `Live deployment URL placeholder for ${project.title}. You can attach your live URL in src/data/portfolioData.js.`
-                    })}
-                    className="flex-1 min-w-[140px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-dark-950 text-xs font-mono font-semibold shadow-md shadow-emerald-500/20 transition-all"
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                    <span>Live Demo</span>
-                  </button>
-                )}
-              </div>
-
-            </div>
-          ))}
+            );
+          })}
         </div>
 
       </div>

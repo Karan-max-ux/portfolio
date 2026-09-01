@@ -9,76 +9,49 @@
   }
   
   body {
-    background-color: #06090e;
-    color: #e2e8f0;
+    background-color: #080C10;
+    color: #F1F5F3;
     overflow-x: hidden;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
   }
 
-  /* Custom Modern Developer Scrollbar */
+  ::selection {
+    background: rgba(0, 214, 163, 0.2);
+    color: #00D6A3;
+  }
+
+  /* Minimalist Technical Scrollbar */
   ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #0b111a;
+    background: #080C10;
   }
   ::-webkit-scrollbar-thumb {
-    background: #1e293b;
-    border-radius: 4px;
+    background: #1D2A33;
+    border-radius: 3px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #334155;
+    background: #263640;
   }
 }
 
 @layer utilities {
-  .glass-panel {
-    background: rgba(15, 23, 36, 0.7);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+  .surface-card {
+    background-color: #121A22;
+    border: 1px solid #1D2A33;
   }
 
-  .glass-panel-hover {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  .surface-hover {
+    transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
   }
   
-  .glass-panel-hover:hover {
-    border-color: rgba(52, 211, 153, 0.3);
-    box-shadow: 0 10px 30px -10px rgba(16, 185, 129, 0.15);
-    transform: translateY(-2px);
+  .surface-hover:hover {
+    border-color: #2A3D4A;
   }
 
-  .glass-card {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.005) 100%);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-  }
-
-  .text-gradient-emerald {
-    background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .text-gradient-cyan {
-    background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .text-gradient-white {
-    background: linear-gradient(180deg, #ffffff 0%, #94a3b8 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .glow-box-emerald {
-    box-shadow: 0 0 50px -10px rgba(16, 185, 129, 0.18);
-  }
-
-  .glow-box-cyan {
-    box-shadow: 0 0 50px -10px rgba(6, 182, 212, 0.18);
+  .subtle-green-border:hover {
+    border-color: rgba(0, 214, 163, 0.35);
   }
 }

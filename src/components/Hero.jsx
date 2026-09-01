@@ -1,15 +1,11 @@
 import React from 'react';
 import { personalInfo } from '../data/portfolioData';
 import { 
-  ArrowRight, 
-  Mail, 
-  Linkedin, 
-  Github, 
+  ArrowUpRight, 
   MapPin, 
-  Code2, 
-  Sparkles,
-  Terminal as TerminalIcon,
-  CheckCircle2
+  Linkedin, 
+  Github,
+  Circle
 } from 'lucide-react';
 
 export default function Hero({ onOpenPlaceholder }) {
@@ -27,127 +23,156 @@ export default function Hero({ onOpenPlaceholder }) {
     }
   };
 
+  const widget = personalInfo.terminalWidget;
+
   return (
     <section 
       id="home" 
-      className="relative min-h-[92vh] flex items-center justify-center pt-28 pb-16 overflow-hidden"
+      className="relative min-h-[88vh] flex items-center pt-28 pb-20 overflow-hidden"
     >
-      {/* Subtle Background Glows */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[350px] bg-emerald-500/10 blur-[130px] rounded-full pointer-events-none" />
-      <div className="absolute top-1/3 right-1/4 w-[350px] h-[250px] bg-cyan-500/10 blur-[120px] rounded-full pointer-events-none" />
+      {/* Extremely subtle radial green glow (rgba(0, 214, 163, 0.06)) */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] bg-accent-green/[0.06] blur-[140px] rounded-full pointer-events-none" />
       
-      {/* Developer Grid Texture */}
-      <div className="absolute inset-0 bg-grid-pattern bg-[length:32px_32px] opacity-40 pointer-events-none" />
+      {/* Subtle, almost invisible grid texture */}
+      <div className="absolute inset-0 bg-subtle-grid bg-[length:28px_28px] opacity-25 pointer-events-none" />
 
-      <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         
-        {/* Available / Status Pill */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-emerald-500/30 text-xs font-mono text-emerald-400 mb-6 shadow-sm shadow-emerald-500/10 animate-fade-in">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-          </span>
-          <span>{personalInfo.statusBadge}</span>
-          <span className="text-slate-600">|</span>
-          <span className="flex items-center gap-1 text-slate-300">
-            <MapPin className="w-3 h-3 text-emerald-400" />
-            {personalInfo.location}
-          </span>
-        </div>
-
-        {/* Primary Name */}
-        <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white mb-4">
-          Hi, I'm <span className="text-gradient-emerald">{personalInfo.name}</span>
-        </h1>
-
-        {/* Professional Subtitle */}
-        <p className="text-lg sm:text-2xl font-medium text-slate-300 mb-6 max-w-3xl mx-auto">
-          {personalInfo.heroSubtitle}
-        </p>
-
-        {/* Introduction */}
-        <p className="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-          {personalInfo.heroIntro}
-        </p>
-
-        {/* Action Buttons */}
-        <div className="flex flex-wrap items-center justify-center gap-4 mb-12">
-          <a
-            href="#projects"
-            onClick={(e) => handleScrollTo(e, '#projects')}
-            className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl font-semibold text-sm bg-emerald-500 hover:bg-emerald-400 text-dark-950 shadow-lg shadow-emerald-500/25 hover:shadow-emerald-400/40 transition-all active:scale-95 cursor-pointer"
-          >
-            <span>View My Projects</span>
-            <ArrowRight className="w-4 h-4" />
-          </a>
-
-          <a
-            href="#contact"
-            onClick={(e) => handleScrollTo(e, '#contact')}
-            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-sm bg-slate-900/90 hover:bg-slate-800 text-white border border-slate-700/80 hover:border-slate-600 shadow-md transition-all active:scale-95 cursor-pointer"
-          >
-            <Mail className="w-4 h-4 text-emerald-400" />
-            <span>Contact Me</span>
-          </a>
-        </div>
-
-        {/* Social Links & Placeholders */}
-        <div className="flex items-center justify-center gap-4 pt-4 border-t border-slate-800/80 max-w-md mx-auto">
-          <a
-            href={personalInfo.linkedinUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900/80 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-800 hover:border-emerald-500/30 text-xs font-mono transition-all"
-            aria-label="Karan Singh LinkedIn Profile"
-          >
-            <Linkedin className="w-4 h-4 text-sky-400" />
-            <span>LinkedIn</span>
-          </a>
-
-          {personalInfo.githubUrl ? (
-            <a
-              href={personalInfo.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900/80 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-800 hover:border-purple-500/30 text-xs font-mono transition-all"
-              aria-label="Karan Singh GitHub Profile"
-            >
-              <Github className="w-4 h-4 text-purple-400" />
-              <span>GitHub</span>
-            </a>
-          ) : (
-            <button
-              onClick={() => onOpenPlaceholder({
-                title: "GitHub Repository Profile",
-                fieldName: "personalInfo.githubUrl",
-                message: "Karan's GitHub profile link can be configured directly in src/data/portfolioData.js."
-              })}
-              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900/80 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-800 hover:border-slate-700 text-xs font-mono transition-all"
-              aria-label="GitHub Profile Placeholder"
-            >
-              <Github className="w-4 h-4 text-slate-300" />
-              <span>GitHub</span>
-              <span className="text-[10px] px-1.5 py-0.5 rounded bg-slate-800 text-slate-400 font-sans">
-                Configurable
+        {/* Asymmetrical 2-Column Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          
+          {/* Left Side: Main Introduction (7 columns) */}
+          <div className="lg:col-span-7 text-left space-y-6">
+            
+            {/* Availability & Location Pill */}
+            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-surface border border-border text-xs font-sans text-content-secondary shadow-sm">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-green opacity-60"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-accent-green"></span>
               </span>
-            </button>
-          )}
-        </div>
+              <span>{personalInfo.availability}</span>
+              <span className="text-content-muted">·</span>
+              <span className="text-content-secondary flex items-center gap-1">
+                <MapPin className="w-3 h-3 text-accent-green/80" />
+                {personalInfo.location}
+              </span>
+            </div>
 
-        {/* Tech Stack Floating Strip */}
-        <div className="mt-12 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
-          <span className="text-xs font-mono uppercase tracking-wider text-slate-500 mr-2 flex items-center gap-1.5">
-            <Code2 className="w-3.5 h-3.5 text-emerald-500" />
-            Primary Stack:
-          </span>
-          {personalInfo.primaryTech.map((tech) => (
-            <span
-              key={tech}
-              className="px-3 py-1 rounded-lg bg-dark-900/80 border border-slate-800 text-slate-300 text-xs font-mono hover:border-emerald-500/40 hover:text-emerald-300 transition-colors"
-            >
-              {tech}
-            </span>
-          ))}
+            {/* Headline */}
+            <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-content-primary leading-[1.1]">
+              Hey, I'm <span className="text-accent-green">{personalInfo.firstName}</span>.
+            </h1>
+
+            {/* Subtitle / Personal Pitch */}
+            <p className="text-lg sm:text-xl text-content-secondary max-w-xl leading-relaxed font-sans">
+              {personalInfo.bio}
+            </p>
+
+            {/* Role & Student Meta */}
+            <div className="pt-1">
+              <p className="text-sm font-sans font-medium text-content-muted tracking-wide">
+                {personalInfo.roleTitle}
+              </p>
+            </div>
+
+            {/* Hero Buttons */}
+            <div className="flex flex-wrap items-center gap-4 pt-3">
+              {/* Primary Button */}
+              <a
+                href="#projects"
+                onClick={(e) => handleScrollTo(e, '#projects')}
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-sans font-semibold text-sm bg-accent-green text-bg shadow-sm hover:shadow-green-subtle transition-all duration-200 active:scale-95 cursor-pointer"
+              >
+                <span>See My Work</span>
+                <ArrowUpRight className="w-4 h-4" />
+              </a>
+
+              {/* Secondary Button */}
+              <a
+                href="#contact"
+                onClick={(e) => handleScrollTo(e, '#contact')}
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-sans font-medium text-sm bg-surface-button text-content-primary border border-border-button hover:border-accent-green/60 hover:text-white transition-all duration-200 active:scale-95 cursor-pointer"
+              >
+                <span>Let's Talk</span>
+              </a>
+            </div>
+
+            {/* Social Profile Links */}
+            <div className="flex items-center gap-5 pt-4 text-content-muted text-xs font-sans">
+              <a 
+                href={personalInfo.githubUrl} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 hover:text-content-primary transition-colors"
+              >
+                <Github className="w-3.5 h-3.5" />
+                <span>GitHub</span>
+              </a>
+              <span className="text-border">/</span>
+              <a 
+                href={personalInfo.linkedinUrl} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 hover:text-accent-cyan transition-colors"
+              >
+                <Linkedin className="w-3.5 h-3.5" />
+                <span>LinkedIn</span>
+              </a>
+            </div>
+
+          </div>
+
+          {/* Right Side: Subtle Developer Visual Card (5 columns) */}
+          <div className="lg:col-span-5 flex justify-center lg:justify-end">
+            <div className="w-full max-w-sm rounded-xl bg-surface border border-border p-6 shadow-card-subtle relative transition-all duration-200 hover:border-border-button">
+              
+              {/* Top card header with minimal dots */}
+              <div className="flex items-center justify-between pb-4 mb-4 border-b border-border-subtle">
+                <div className="flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#1D2A33]" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#1D2A33]" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#1D2A33]" />
+                </div>
+                <span className="text-[11px] font-mono text-content-muted">
+                  {widget.directory}
+                </span>
+              </div>
+
+              {/* Developer Metadata Content */}
+              <div className="font-mono text-xs space-y-4">
+                
+                <div>
+                  <div className="text-content-muted">$ whoami</div>
+                  <div className="text-accent-green font-medium mt-1 pl-3">
+                    {widget.whoami}
+                  </div>
+                </div>
+
+                <div>
+                  <div className="text-content-muted">$ stack</div>
+                  <div className="text-content-secondary mt-1 pl-3 space-y-0.5">
+                    {widget.stack.map((tech, i) => (
+                      <div key={i} className="flex items-center gap-2">
+                        <span className="text-border">·</span>
+                        <span>{tech}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="pt-1">
+                  <div className="text-content-muted">$ status</div>
+                  <div className="mt-1 pl-3 flex items-center gap-2 text-content-secondary">
+                    <span className="w-2 h-2 rounded-full bg-accent-green animate-pulse" />
+                    <span className="capitalize">{widget.status}</span>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
         </div>
 
       </div>

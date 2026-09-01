@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
+import Now from './components/Now';
+import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Experience from './components/Experience';
-import Projects from './components/Projects';
 import Certifications from './components/Certifications';
-import Education from './components/Education';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
@@ -25,16 +25,16 @@ export default function App() {
     const sections = [
       'home',
       'about',
+      'now',
+      'projects',
       'skills',
       'experience',
-      'projects',
       'certifications',
-      'education',
       'contact'
     ];
 
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 200;
+      const scrollPosition = window.scrollY + 180;
 
       for (const sectionId of sections) {
         const el = document.getElementById(sectionId);
@@ -67,27 +67,42 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-dark-950 text-slate-100 flex flex-col font-sans selection:bg-emerald-500/20 selection:text-emerald-400">
+    <div className="min-h-screen bg-bg text-content-primary flex flex-col font-sans selection:bg-accent-green/20 selection:text-accent-green antialiased">
       
       {/* Top Sticky Navigation */}
       <Navbar activeSection={activeSection} />
 
-      {/* Main Content Sections */}
+      {/* Main Content Sections with Visual Variety */}
       <main className="flex-grow">
+        {/* 1. Hero: Asymmetric Introduction + Developer Card */}
         <Hero onOpenPlaceholder={openPlaceholderModal} />
+
+        {/* 2. About: Conversational Narrative + Interests */}
         <About />
-        <Skills />
-        <Experience />
+
+        {/* 3. Now: Currently Building / Active Developer Board */}
+        <Now />
+
+        {/* 4. Projects: Large Alternating Showcases with "Why I built it" */}
         <Projects onOpenPlaceholder={openPlaceholderModal} />
+
+        {/* 5. Skills: Natural Grouped Typography */}
+        <Skills />
+
+        {/* 6. Timeline: Professional Experience & Education */}
+        <Experience />
+
+        {/* 7. Certifications: Compact Clean List */}
         <Certifications onOpenPlaceholder={openPlaceholderModal} />
-        <Education />
+
+        {/* 8. Contact: Conversational CTA */}
         <Contact onOpenPlaceholder={openPlaceholderModal} />
       </main>
 
-      {/* Footer */}
+      {/* Footer: Personal Sign-off */}
       <Footer onOpenPlaceholder={openPlaceholderModal} />
 
-      {/* Floating Helpers */}
+      {/* Floating Helpers & Modals */}
       <ScrollToTop />
       <PlaceholderModal
         isOpen={modalConfig.isOpen}
