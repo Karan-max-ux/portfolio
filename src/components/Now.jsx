@@ -3,22 +3,22 @@ import { nowData } from '../data/portfolioData';
 
 export default function Now() {
   return (
-    <section id="now" className="py-14 bg-[#080C10] border-t border-[#1D2A33] relative">
+    <section id="now" className="py-14 bg-black border-t border-white/10 relative">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Compact Distinct Container */}
-        <div className="rounded-2xl bg-[#121A22] border border-[#1D2A33] p-6 sm:p-8 shadow-[0_4px_24px_rgba(0,0,0,0.5)]">
+        {/* Compact Container with Crisp White Border */}
+        <div className="rounded-2xl bg-[#0D0D0D] border border-white/10 p-6 sm:p-8 shadow-2xl hover:border-white/20 transition-colors">
           
-          <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-[#1D2A33] mb-6">
+          <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-white/10 mb-6">
             <div className="flex items-center gap-3">
               <span className="px-2.5 py-1 rounded text-[11px] font-mono font-semibold bg-[#00D6A3]/10 border border-[#00D6A3]/30 text-[#00D6A3]">
                 {nowData.sectionLabel}
               </span>
-              <h2 className="text-base sm:text-lg font-sans font-semibold text-[#F1F5F3]">
+              <h2 className="text-base sm:text-lg font-sans font-semibold text-white">
                 {nowData.headline}
               </h2>
             </div>
-            <span className="text-xs font-mono text-[#62717B]">
+            <span className="text-xs font-mono text-[#666666]">
               Active Developer State
             </span>
           </div>
@@ -48,7 +48,7 @@ export default function Now() {
                       {item.category}
                     </span>
                   </div>
-                  <p className="text-sm font-sans font-medium text-[#A6B3BA] pl-4">
+                  <p className="text-sm font-sans font-medium text-[#A1A1A1] pl-4">
                     {item.description}
                   </p>
                 </div>

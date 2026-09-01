@@ -67,7 +67,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-bg text-content-primary flex flex-col font-sans selection:bg-accent-green/20 selection:text-accent-green antialiased">
+    <div className="min-h-screen bg-black text-white flex flex-col font-sans selection:bg-[#00D6A3]/20 selection:text-[#00D6A3] antialiased">
       
       {/* Top Sticky Navigation */}
       <Navbar activeSection={activeSection} />

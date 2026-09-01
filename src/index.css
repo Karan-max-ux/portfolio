@@ -3,32 +3,32 @@
 @tailwind utilities;
 
 :root {
-  --canvas: #080C10;
-  --canvas-subtle: #0E141B;
-  --surface: #121A22;
-  --surface-button: #101820;
-  --surface-elevated: #16222C;
-  --border: #1D2A33;
-  --border-button: #263640;
-  --border-hover: #2A3C49;
+  --canvas: #000000;
+  --canvas-subtle: #080808;
+  --surface: #0D0D0D;
+  --surface-card: #111111;
+  --surface-button: #141414;
+  --border-white: rgba(255, 255, 255, 0.1);
+  --border-white-subtle: rgba(255, 255, 255, 0.06);
+  --border-white-strong: rgba(255, 255, 255, 0.18);
   --accent-green: #00D6A3;
   --accent-cyan: #22C7D8;
   --accent-purple: #9B8AFB;
-  --txt-primary: #F1F5F3;
-  --txt-secondary: #A6B3BA;
-  --txt-muted: #62717B;
+  --txt-primary: #FFFFFF;
+  --txt-secondary: #A1A1A1;
+  --txt-muted: #666666;
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
     color-scheme: dark;
-    background-color: #080C10;
+    background-color: #000000;
   }
   
   body {
-    background-color: #080C10;
-    color: #F1F5F3;
+    background-color: #000000;
+    color: #FFFFFF;
     overflow-x: hidden;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
   }
@@ -43,29 +43,28 @@
     height: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #080C10;
+    background: #000000;
   }
   ::-webkit-scrollbar-thumb {
-    background: #1D2A33;
+    background: rgba(255, 255, 255, 0.15);
     border-radius: 3px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #263640;
+    background: rgba(255, 255, 255, 0.3);
   }
 }
 
 @layer utilities {
+  .theme-border {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .theme-border-strong {
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+  
   .theme-card {
-    background-color: #121A22;
-    border: 1px solid #1D2A33;
-  }
-  
-  .theme-card-hover {
-    transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
-  }
-  
-  .theme-card-hover:hover {
-    border-color: #2A3C49;
-    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.6);
+    background-color: #0D0D0D;
+    border: 1px solid rgba(255, 255, 255, 0.1);
   }
 }
