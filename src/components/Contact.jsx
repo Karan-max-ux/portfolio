@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { contactData, personalInfo } from '../data/portfolioData';
+import { contactData } from '../data/portfolioData';
 import { 
   Mail, 
   Linkedin, 
@@ -39,18 +39,18 @@ export default function Contact({ onOpenPlaceholder }) {
   };
 
   return (
-    <section id="contact" className="py-24 border-t border-border-subtle relative">
+    <section id="contact" className="py-24 bg-[#0E141B] border-t border-[#1D2A33] relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left">
         
         {/* Conversational Intro Block */}
         <div className="space-y-4 max-w-2xl mb-12">
-          <span className="text-xs font-mono uppercase tracking-widest text-accent-green block">
+          <span className="text-xs font-mono uppercase tracking-widest text-[#00D6A3] block">
             {contactData.heading}
           </span>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-content-primary tracking-tight font-sans">
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-[#F1F5F3] tracking-tight font-sans">
             {contactData.subheading}
           </h2>
-          <p className="text-base sm:text-lg text-content-secondary font-sans leading-relaxed pt-1">
+          <p className="text-base sm:text-lg text-[#A6B3BA] font-sans leading-relaxed pt-1">
             {contactData.description}
           </p>
         </div>
@@ -58,10 +58,10 @@ export default function Contact({ onOpenPlaceholder }) {
         {/* Primary Conversational Action Buttons */}
         <div className="flex flex-wrap items-center justify-center sm:justify-start gap-4 mb-8">
           
-          {/* Email Me Button with direct mailto */}
+          {/* Email Me Button */}
           <a
             href={`mailto:${contactData.email}`}
-            className="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-accent-green text-bg font-sans font-semibold text-sm hover:shadow-green-subtle transition-all active:scale-95 cursor-pointer"
+            className="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-[#00D6A3] text-[#080C10] font-sans font-semibold text-sm shadow-sm hover:shadow-[0_0_20px_rgba(0,214,163,0.25)] transition-all active:scale-95 cursor-pointer"
           >
             <Mail className="w-4 h-4" />
             <span>Email Me</span>
@@ -70,13 +70,13 @@ export default function Contact({ onOpenPlaceholder }) {
           {/* Copy Email Button */}
           <button
             onClick={handleCopyEmail}
-            className="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-surface-button text-content-secondary border border-border-button hover:border-border hover:text-content-primary text-sm font-sans transition-all active:scale-95 cursor-pointer"
+            className="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-[#101820] text-[#A6B3BA] border border-[#263640] hover:border-[#1D2A33] hover:text-[#F1F5F3] text-sm font-sans transition-all active:scale-95 cursor-pointer"
             title="Copy email address"
           >
             {copiedEmail ? (
               <>
-                <Check className="w-4 h-4 text-accent-green" />
-                <span className="text-accent-green text-xs font-mono">Copied email!</span>
+                <Check className="w-4 h-4 text-[#00D6A3]" />
+                <span className="text-[#00D6A3] text-xs font-mono">Copied email!</span>
               </>
             ) : (
               <>
@@ -91,11 +91,11 @@ export default function Contact({ onOpenPlaceholder }) {
             href={contactData.linkedinUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-surface-button text-content-primary border border-border-button hover:border-accent-cyan/60 hover:text-white font-sans text-sm font-medium transition-all active:scale-95"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#101820] text-[#F1F5F3] border border-[#263640] hover:border-[#22C7D8]/60 hover:text-white font-sans text-sm font-medium transition-all active:scale-95"
           >
-            <Linkedin className="w-4 h-4 text-accent-cyan" />
+            <Linkedin className="w-4 h-4 text-[#22C7D8]" />
             <span>LinkedIn</span>
-            <ArrowUpRight className="w-3.5 h-3.5 text-content-muted" />
+            <ArrowUpRight className="w-3.5 h-3.5 text-[#62717B]" />
           </a>
 
           {/* GitHub Button */}
@@ -103,84 +103,84 @@ export default function Contact({ onOpenPlaceholder }) {
             href={contactData.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-surface-button text-content-primary border border-border-button hover:border-border font-sans text-sm font-medium transition-all active:scale-95"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#101820] text-[#F1F5F3] border border-[#263640] hover:border-[#9B8AFB]/50 font-sans text-sm font-medium transition-all active:scale-95"
           >
             <Github className="w-4 h-4" />
             <span>GitHub</span>
-            <ArrowUpRight className="w-3.5 h-3.5 text-content-muted" />
+            <ArrowUpRight className="w-3.5 h-3.5 text-[#62717B]" />
           </a>
 
         </div>
 
         {/* Quick Note Toggle & Form */}
-        <div className="pt-4 border-t border-border-subtle/80">
+        <div className="pt-4 border-t border-[#1D2A33]">
           {!showQuickForm ? (
             <button
               onClick={() => setShowQuickForm(true)}
-              className="text-xs font-mono text-content-muted hover:text-accent-green transition-colors inline-flex items-center gap-1.5 cursor-pointer"
+              className="text-xs font-mono text-[#62717B] hover:text-[#00D6A3] transition-colors inline-flex items-center gap-1.5 cursor-pointer"
             >
               <MessageSquare className="w-3.5 h-3.5" />
               <span>Or leave a quick message here directly →</span>
             </button>
           ) : (
-            <form onSubmit={handleFormSubmit} className="mt-4 space-y-4 max-w-lg rounded-xl bg-surface border border-border p-6 text-left">
-              <div className="flex items-center justify-between pb-2 border-b border-border-subtle">
-                <span className="text-xs font-mono text-content-muted">Quick Dispatch</span>
+            <form onSubmit={handleFormSubmit} className="mt-4 space-y-4 max-w-lg rounded-xl bg-[#121A22] border border-[#1D2A33] p-6 text-left shadow-[0_4px_20px_rgba(0,0,0,0.4)]">
+              <div className="flex items-center justify-between pb-2 border-b border-[#1D2A33]">
+                <span className="text-xs font-mono text-[#62717B]">Quick Dispatch</span>
                 <button
                   type="button"
                   onClick={() => setShowQuickForm(false)}
-                  className="text-xs font-mono text-content-muted hover:text-content-primary"
+                  className="text-xs font-mono text-[#62717B] hover:text-[#F1F5F3]"
                 >
                   [Close]
                 </button>
               </div>
 
               <div>
-                <label className="block text-xs font-mono text-content-secondary mb-1">Your Name</label>
+                <label className="block text-xs font-mono text-[#A6B3BA] mb-1">Your Name</label>
                 <input
                   type="text"
                   required
                   value={formState.name}
                   onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                   placeholder="Alex"
-                  className="w-full px-3 py-2 rounded-lg bg-bg border border-border text-sm text-content-primary focus:outline-none focus:border-accent-green"
+                  className="w-full px-3 py-2 rounded-lg bg-[#080C10] border border-[#1D2A33] text-sm text-[#F1F5F3] focus:outline-none focus:border-[#00D6A3]"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-mono text-content-secondary mb-1">Email Address</label>
+                <label className="block text-xs font-mono text-[#A6B3BA] mb-1">Email Address</label>
                 <input
                   type="email"
                   required
                   value={formState.email}
                   onChange={(e) => setFormState({ ...formState, email: e.target.value })}
                   placeholder="alex@example.com"
-                  className="w-full px-3 py-2 rounded-lg bg-bg border border-border text-sm text-content-primary focus:outline-none focus:border-accent-green"
+                  className="w-full px-3 py-2 rounded-lg bg-[#080C10] border border-[#1D2A33] text-sm text-[#F1F5F3] focus:outline-none focus:border-[#00D6A3]"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-mono text-content-secondary mb-1">Message</label>
+                <label className="block text-xs font-mono text-[#A6B3BA] mb-1">Message</label>
                 <textarea
                   required
                   rows={3}
                   value={formState.message}
                   onChange={(e) => setFormState({ ...formState, message: e.target.value })}
                   placeholder="Hey Karan, I'd love to chat about..."
-                  className="w-full px-3 py-2 rounded-lg bg-bg border border-border text-sm text-content-primary focus:outline-none focus:border-accent-green resize-none"
+                  className="w-full px-3 py-2 rounded-lg bg-[#080C10] border border-[#1D2A33] text-sm text-[#F1F5F3] focus:outline-none focus:border-[#00D6A3] resize-none"
                 />
               </div>
 
               <div className="flex items-center justify-between pt-1">
                 <button
                   type="submit"
-                  className="inline-flex items-center gap-2 px-5 py-2 rounded-lg bg-accent-green text-bg font-sans font-semibold text-xs hover:shadow-green-subtle transition-all"
+                  className="inline-flex items-center gap-2 px-5 py-2 rounded-lg bg-[#00D6A3] text-[#080C10] font-sans font-semibold text-xs shadow-sm hover:shadow-[0_0_15px_rgba(0,214,163,0.25)] transition-all"
                 >
                   <Send className="w-3.5 h-3.5" />
                   <span>Send Message</span>
                 </button>
                 {sent && (
-                  <span className="text-xs font-mono text-accent-green">Opening mail client...</span>
+                  <span className="text-xs font-mono text-[#00D6A3]">Opening mail client...</span>
                 )}
               </div>
             </form>

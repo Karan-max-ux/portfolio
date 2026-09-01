@@ -2,10 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --canvas: #080C10;
+  --canvas-subtle: #0E141B;
+  --surface: #121A22;
+  --surface-button: #101820;
+  --surface-elevated: #16222C;
+  --border: #1D2A33;
+  --border-button: #263640;
+  --border-hover: #2A3C49;
+  --accent-green: #00D6A3;
+  --accent-cyan: #22C7D8;
+  --accent-purple: #9B8AFB;
+  --txt-primary: #F1F5F3;
+  --txt-secondary: #A6B3BA;
+  --txt-muted: #62717B;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
     color-scheme: dark;
+    background-color: #080C10;
   }
   
   body {
@@ -16,11 +34,10 @@
   }
 
   ::selection {
-    background: rgba(0, 214, 163, 0.2);
+    background: rgba(0, 214, 163, 0.25);
     color: #00D6A3;
   }
 
-  /* Minimalist Technical Scrollbar */
   ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
@@ -38,20 +55,17 @@
 }
 
 @layer utilities {
-  .surface-card {
+  .theme-card {
     background-color: #121A22;
     border: 1px solid #1D2A33;
   }
-
-  .surface-hover {
+  
+  .theme-card-hover {
     transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
   }
   
-  .surface-hover:hover {
-    border-color: #2A3D4A;
-  }
-
-  .subtle-green-border:hover {
-    border-color: rgba(0, 214, 163, 0.35);
+  .theme-card-hover:hover {
+    border-color: #2A3C49;
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.6);
   }
 }
