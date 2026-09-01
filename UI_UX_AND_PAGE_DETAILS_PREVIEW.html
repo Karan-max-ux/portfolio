@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Karan Singh Portfolio — UI/UX Specification & Page Details</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark-950: #06090e;
+      --bg-dark-900: #0b111a;
+      --bg-dark-850: #0f1724;
+      --bg-dark-800: #152033;
+      --border-dark: #1e2d45;
+      --primary-500: #10b981;
+      --primary-400: #34d399;
+      --accent-cyan: #06b6d4;
+      --accent-blue: #3b82f6;
+      --text-white: #f8fafc;
+      --text-slate-300: #cbd5e1;
+      --text-slate-400: #94a3b8;
+      --text-slate-500: #64748b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark-950);
+      color: var(--text-slate-300);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      padding: 0;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 24px;
+    }
+
+    /* Header Banner */
+    .header {
+      background: linear-gradient(180deg, rgba(16, 185, 129, 0.08) 0%, rgba(6, 9, 14, 0) 100%);
+      border-bottom: 1px solid var(--border-dark);
+      padding: 60px 0 40px 0;
+      margin-bottom: 40px;
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      color: var(--primary-400);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 500;
+      margin-bottom: 16px;
+    }
+
+    .radar-dot {
+      width: 8px;
+      height: 8px;
+      background-color: var(--primary-500);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--primary-500);
+    }
+
+    h1 {
+      font-size: 42px;
+      font-weight: 800;
+      color: var(--text-white);
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .lead-text {
+      font-size: 18px;
+      color: var(--text-slate-400);
+      max-width: 800px;
+    }
+
+    /* Section Styles */
+    section {
+      margin-bottom: 56px;
+    }
+
+    .section-title {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--text-white);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-title::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 24px;
+      background: var(--primary-500);
+      border-radius: 2px;
+    }
+
+    /* Cards & Grid */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 24px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: rgba(15, 23, 36, 0.75);
+      border: 1px solid var(--border-dark);
+      border-radius: 16px;
+      padding: 24px;
+      backdrop-filter: blur(12px);
+      transition: all 0.25s ease;
+    }
+
+    .card:hover {
+      border-color: rgba(52, 211, 153, 0.35);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.1);
+    }
+
+    .card-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-white);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .card-subtitle {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--primary-400);
+      margin-bottom: 12px;
+    }
+
+    .card-body {
+      font-size: 14px;
+      color: var(--text-slate-300);
+    }
+
+    /* Color Swatches */
+    .color-swatch-box {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border-dark);
+      background: var(--bg-dark-900);
+    }
+
+    .color-swatch-preview {
+      height: 70px;
+      width: 100%;
+    }
+
+    .color-swatch-info {
+      padding: 12px;
+      font-size: 12px;
+    }
+
+    .color-name {
+      font-weight: 600;
+      color: var(--text-white);
+      margin-bottom: 2px;
+    }
+
+    .color-hex {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--primary-400);
+    }
+
+    /* Feature List */
+    ul.feature-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 12px;
+    }
+
+    ul.feature-list li {
+      position: relative;
+      padding-left: 22px;
+      margin-bottom: 8px;
+      font-size: 13px;
+      color: var(--text-slate-300);
+    }
+
+    ul.feature-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--primary-400);
+      font-weight: bold;
+    }
+
+    /* Table Styles */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+      font-size: 14px;
+    }
+
+    th, td {
+      padding: 14px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--border-dark);
+    }
+
+    th {
+      background: var(--bg-dark-900);
+      color: var(--text-white);
+      font-weight: 600;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    tr:hover td {
+      background: rgba(255, 255, 255, 0.015);
+    }
+
+    .code-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      padding: 3px 8px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 6px;
+      color: var(--primary-400);
+    }
+
+    /* Key Metric Stat Cards */
+    .stat-card {
+      background: rgba(15, 23, 36, 0.85);
+      border: 1px solid var(--border-dark);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 38px;
+      font-weight: 800;
+      color: var(--primary-400);
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-white);
+      margin-bottom: 4px;
+    }
+
+    .stat-subtext {
+      font-size: 12px;
+      color: var(--text-slate-500);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-dark);
+      padding: 32px 0;
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-slate-500);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Header Banner -->
+  <header class="header">
+    <div class="container">
+      <div class="badge-pill">
+        <span class="radar-dot"></span>
+        <span>UI/UX DESIGN SYSTEM & PAGE BREAKDOWN</span>
+      </div>
+      <h1>Karan Singh — <span class="gradient-text">Portfolio System</span></h1>
+      <p class="lead-text">
+        Complete documentation of the visual design hierarchy, component states, section details, and engineering tokens powering Karan Singh's Full-Stack Developer portfolio.
+      </p>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- 1. Executive Summary & Brand Identity -->
+    <section>
+      <h2 class="section-title">1. Executive Overview & Brand Identity</h2>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-title">Developer Identity</div>
+          <div class="card-subtitle">Karan Singh</div>
+          <p class="card-body">
+            Full-Stack / MERN Stack Developer and Aspiring Software Engineer. CSE student at Lovely Professional University (LPU), based in Pune / Pimpri-Chinchwad, India.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-title">Aesthetic Direction</div>
+          <div class="card-subtitle">Dark Cyber-Minimalism</div>
+          <p class="card-body">
+            High-contrast dark theme (#06090e base) infused with emerald green and electric cyan accents, subtle glassmorphic blurs, and terminal motifs.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-title">Core Architecture</div>
+          <div class="card-subtitle">React 18 + Vite 6 + Tailwind</div>
+          <p class="card-body">
+            Decoupled single-page architecture with centralized content configuration (<code class="code-tag">portfolioData.js</code>) and zero dead links.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Design Tokens: Colors -->
+    <section>
+      <h2 class="section-title">2. Color Palette & Tokens</h2>
+      <div class="grid-4">
+        
+        <div class="color-swatch-box">
+          <div class="color-swatch-preview" style="background: #06090e;"></div>
+          <div class="color-swatch-info">
+            <div class="color-name">Dark 950 (Canvas)</div>
+            <div class="color-hex">#06090e</div>
+          </div>
+        </div>
+
+        <div class="color-swatch-box">
+          <div class="color-swatch-preview" style="background: #0b111a;"></div>
+          <div class="color-swatch-info">
+            <div class="color-name">Dark 900 (Surface)</div>
+            <div class="color-hex">#0b111a</div>
+          </div>
+        </div>
+
+        <div class="color-swatch-box">
+          <div class="color-swatch-preview" style="background: #0f1724;"></div>
+          <div class="color-swatch-info">
+            <div class="color-name">Dark 850 (Card Base)</div>
+            <div class="color-hex">#0f1724</div>
+          </div>
+        </div>
+
+        <div class="color-swatch-box">
+          <div class="color-swatch-preview" style="background: #1e2d45;"></div>
+          <div class="color-swatch-info">
+            <div class="color-name">Dark 700 (Border)</div>
+            <div class="color-hex">#1e2d45</div>
+          </div>
+        </div>
+
+        <div class="color-swatch-box">
+          <div class="color-swatch-preview" style="background: #10b981;"></div>
+          <div class="color-swatch-info">
+            <div class="color-name">Emerald 500 (Primary)</div>
+            <div class="color-hex">#10b981</div>
+          </div>
+        </div>
+
+        <div class="color-swatch-box">
+          <div class="color-swatch-preview" style="background: #34d399;"></div>
+          <div class="color-swatch-info">
+            <div class="color-name">Emerald 400 (Highlight)</div>
+            <div class="color-hex">#34d399</div>
+          </div>
+        </div>
+
+        <div class="color-swatch-box">
+          <div class="color-swatch-preview" style="background: #06b6d4;"></div>
+          <div class="color-swatch-info">
+            <div class="color-name">Cyan 500 (Accent)</div>
+            <div class="color-hex">#06b6d4</div>
+          </div>
+        </div>
+
+        <div class="color-swatch-box">
+          <div class="color-swatch-preview" style="background: #cbd5e1;"></div>
+          <div class="color-swatch-info">
+            <div class="color-name">Slate 300 (Body Text)</div>
+            <div class="color-hex">#cbd5e1</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3. Key Metrics (About Stats) -->
+    <section>
+      <h2 class="section-title">3. Key Numerical Metric Anchors</h2>
+      <div class="grid-4">
+        <div class="stat-card">
+          <div class="stat-number">5+</div>
+          <div class="stat-label">Responsive Features</div>
+          <div class="stat-subtext">Engineered at InternsVeda</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">10+</div>
+          <div class="stat-label">RESTful APIs</div>
+          <div class="stat-subtext">Designed, tested & deployed</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">2+</div>
+          <div class="stat-label">Hackathon Builds</div>
+          <div class="stat-subtext">Rapid high-pressure prototypes</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">MERN</div>
+          <div class="stat-label">Core Specialization</div>
+          <div class="stat-subtext">MongoDB, Express, React, Node</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Section-by-Section Breakdown Table -->
+    <section>
+      <h2 class="section-title">4. Complete Section Breakdown & Content Specification</h2>
+      <div class="card" style="padding: 8px; overflow-x: auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>ID & Tag</th>
+              <th>Component</th>
+              <th>Key Elements & UI Features</th>
+              <th>Interactive Behavior</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="code-tag">Navbar</span></td>
+              <td>Navbar.jsx</td>
+              <td>Brand icon, Karan.dev logo, 9 desktop anchor links, mobile drawer menu, Contact CTA button</td>
+              <td>Dynamic background on scroll (>20px), active section spy indicator, smooth offset scroll</td>
+            </tr>
+            <tr>
+              <td><span class="code-tag">#home</span></td>
+              <td>Hero.jsx</td>
+              <td>Pulsing radar status badge ("Available for Opportunities"), location pill, headline greeting, intro pitch, 2 primary CTA buttons, LinkedIn/GitHub chips</td>
+              <td>View Projects button smooth scrolls to #projects; Contact button smooth scrolls to #contact; external social links</td>
+            </tr>
+            <tr>
+              <td><span class="code-tag">#about [01]</span></td>
+              <td>About.jsx</td>
+              <td>macOS terminal mockup (karan_singh_profile.md), 4 bio paragraphs, university tag, 4 metric stat cards</td>
+              <td>Stat cards hover lift with glowing icon accents and emerald transition</td>
+            </tr>
+            <tr>
+              <td><span class="code-tag">#skills [02]</span></td>
+              <td>Skills.jsx</td>
+              <td>6 category filter buttons (All, Frontend, Backend, Database, Languages, Tools), 19 technology cards with icons & badges</td>
+              <td>Real-time client filtering by category; category badge styling; hover elevation</td>
+            </tr>
+            <tr>
+              <td><span class="code-tag">#experience [03]</span></td>
+              <td>Experience.jsx</td>
+              <td>Vertical glowing timeline track, InternsVeda Full Stack Intern card, "Current Role" badge, 6 achievement bullets, technology pills</td>
+              <td>Glowing timeline node, card elevation on hover</td>
+            </tr>
+            <tr>
+              <td><span class="code-tag">#projects [04]</span></td>
+              <td>Projects.jsx</td>
+              <td>BudgetWise (Fintech/Role-Based) & SwiftService Now (AI Matching) cards, hackathon badges, screenshot preview box, feature checklists, action buttons</td>
+              <td>Clicking screenshot or unpopulated links opens the informative PlaceholderModal</td>
+            </tr>
+            <tr>
+              <td><span class="code-tag">#hackathons [05]</span></td>
+              <td>Hackathons.jsx</td>
+              <td>BudgetWise (48h) and SwiftService Now (36h) cards, ambient emerald & cyan gradient glows, role contribution, 20% efficiency improvement badge</td>
+              <td>Card hover glow intensification and responsive side-by-side grid</td>
+            </tr>
+            <tr>
+              <td><span class="code-tag">#certifications [06]</span></td>
+              <td>Certifications.jsx</td>
+              <td>3 cards: Adobe India Hackathon Round 1 MCQ, Full Stack Web Development, Linux for Developers. Category tags, icon headers</td>
+              <td>Interactive "View Credential" link triggers modal with exact location to insert certificate URLs</td>
+            </tr>
+            <tr>
+              <td><span class="code-tag">#education [07]</span></td>
+              <td>Education.jsx</td>
+              <td>Lovely Professional University (LPU), Computer Science and Engineering card, year 2024, core coursework list</td>
+              <td>Structured academic profile card</td>
+            </tr>
+            <tr>
+              <td><span class="code-tag">#contact [08]</span></td>
+              <td>Contact.jsx</td>
+              <td>Left: 4 contact cards (Email with 1-click clipboard copy, LinkedIn, GitHub, Pune location). Right: Interactive validated contact form</td>
+              <td>Real-time field validation, error clearing on typing, copy feedback indicator ("Copied!"), fallback mailto generator</td>
+            </tr>
+            <tr>
+              <td><span class="code-tag">Footer</span></td>
+              <td>Footer.jsx</td>
+              <td>Brand block, navigation sitemap, social icons, built-with tech badge, copyright notice, back-to-top button</td>
+              <td>Quick navigation clicks and smooth page elevation</td>
+            </tr>
+            <tr>
+              <td><span class="code-tag">Utilities</span></td>
+              <td>ScrollToTop.jsx & PlaceholderModal.jsx</td>
+              <td>Floating bottom-right button and accessible modal dialog</td>
+              <td>Button auto-appears after 400px scroll; Modal handles all placeholder interactions seamlessly</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 5. Featured Projects Spotlight -->
+    <section>
+      <h2 class="section-title">5. Featured Projects Detail</h2>
+      <div class="grid-2">
+        
+        <div class="card">
+          <div class="card-title">
+            <span>BudgetWise</span>
+            <span class="code-tag">48-Hour Hackathon</span>
+          </div>
+          <div class="card-subtitle">Role-Based Institutional Budget Management System</div>
+          <p class="card-body">
+            A comprehensive financial management platform designed for organizational transparency, multi-tier budget tracking, and real-time expense monitoring.
+          </p>
+          <ul class="feature-list">
+            <li>Role-based access control for institutional members and administrators</li>
+            <li>Secure JWT authentication for protected sessions</li>
+            <li>Institutional budget management & financial allocation workflows</li>
+            <li>Interactive analytical dashboards powered by Chart.js</li>
+          </ul>
+          <div style="margin-top: 16px;">
+            <span class="code-tag">MERN Stack</span>
+            <span class="code-tag">JWT</span>
+            <span class="code-tag">Chart.js</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">
+            <span>SwiftService Now</span>
+            <span class="code-tag">36-Hour Hackathon</span>
+          </div>
+          <div class="card-subtitle">On-Demand Local Service Provider Matching Platform</div>
+          <p class="card-body">
+            An intelligent web platform connecting users with qualified local service technicians, featuring AI-based recommendation and request matching.
+          </p>
+          <ul class="feature-list">
+            <li>Direct connection engine between clients and nearby service providers</li>
+            <li>AI-based intelligent matching algorithm pairing user needs with providers</li>
+            <li><strong>Key Outcome:</strong> Approach improved fulfillment turnaround time by 20%</li>
+            <li>Live deployed on Vercel with active GitHub repository</li>
+          </ul>
+          <div style="margin-top: 16px;">
+            <span class="code-tag">AI Matching</span>
+            <span class="code-tag">Full-Stack Web</span>
+            <span class="code-tag">Vercel</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 6. Form Validation & UX State Rules -->
+    <section>
+      <h2 class="section-title">6. Form UX & Micro-Interactions</h2>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">Contact Form Validation Engine</div>
+          <p class="card-body">
+            The contact form implements client-side validation prior to state submission:
+          </p>
+          <ul class="feature-list">
+            <li><strong>Name:</strong> Required non-empty string</li>
+            <li><strong>Email:</strong> Validated against standard RFC email regex (<code class="code-tag">^[^\s@]+@[^\s@]+\.[^\s@]+$</code>)</li>
+            <li><strong>Subject:</strong> Required non-empty string</li>
+            <li><strong>Message:</strong> Minimum threshold of 10 characters</li>
+            <li><strong>Dynamic Error Removal:</strong> As soon as the user focuses and begins typing in an invalid field, the error indicator for that field clears immediately.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-title">1-Click Clipboard Copy UX</div>
+          <p class="card-body">
+            Beside the primary email contact card, a dedicated copy button allows instant copying of <code class="code-tag">karansingh2436nda@gmail.com</code>:
+          </p>
+          <ul class="feature-list">
+            <li>Uses browser <code class="code-tag">navigator.clipboard.writeText</code></li>
+            <li>Changes button state dynamically from grey copy icon to green checkmark</li>
+            <li>Displays "Copied to clipboard" feedback text for 2.5 seconds</li>
+            <li>Includes fallback alert in case clipboard API access is restricted</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <div class="container">
+      Karan Singh Portfolio UI/UX Specification & Page Details • Prepared for Production Deployment & Design Review
+    </div>
+  </footer>
+
+</body>
+</html>
