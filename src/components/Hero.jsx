@@ -2,7 +2,6 @@ import React from 'react';
 import { personalInfo } from '../data/portfolioData';
 import { 
   ArrowUpRight, 
-  MapPin, 
   Linkedin, 
   Github
 } from 'lucide-react';
@@ -43,18 +42,13 @@ export default function Hero({ onOpenPlaceholder }) {
           {/* Left Side: Main Introduction (7 columns) */}
           <div className="lg:col-span-7 text-left space-y-6">
             
-            {/* Availability & Location Pill */}
+            {/* Availability Pill */}
             <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#111111] border border-white/15 text-xs font-sans text-[#A1A1A1] shadow-sm">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00D6A3] opacity-60"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00D6A3]"></span>
               </span>
               <span>{personalInfo.availability}</span>
-              <span className="text-white/20">·</span>
-              <span className="text-[#A1A1A1] flex items-center gap-1">
-                <MapPin className="w-3 h-3 text-[#22C7D8]" />
-                <span className="text-white">{personalInfo.location}</span>
-              </span>
             </div>
 
             {/* Headline with Signature Green Accent */}
