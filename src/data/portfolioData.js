@@ -179,7 +179,7 @@ export const certificationsData = [
     issuer: "Technical Training",
     date: "2024",
     type: "Certification",
-    url: null
+    url: "https://drive.google.com/file/d/10i0W6Z7tbnZSBb7vrdrLEdseZshzMupm/view?usp=sharing"
   }
 ];
 
