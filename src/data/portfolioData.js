@@ -158,12 +158,12 @@ export const timelineData = [
 
 export const certificationsData = [
   {
-    name: "Coding of Adobe India Hackathon",
-    details: "Round 1 Online MCQ Assessment",
-    issuer: "Adobe India / HackerRank",
+    name: "Round 1 MCQ Assessment + Coding of Adobe India Hackathon",
+    details: "Certificate of Participation",
+    issuer: "Adobe India / Unstop",
     date: "2024",
     type: "Assessment",
-    url: null
+    url: "https://unstop.com/certificate-preview/2603663a-f24d-4e15-bade-4aeacfb8873c?utm_campaign=site-emails"
   },
   {
     name: "Full Stack Web Development Certification",
