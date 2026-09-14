@@ -14,7 +14,7 @@ export const personalInfo = {
   email: "karansingh2436nda@gmail.com",
   linkedinUrl: "https://www.linkedin.com/in/karan-singh-465470337",
   githubUrl: "https://github.com/Karan-max-ux",
-  resumeUrl: "https://drive.google.com/file/d/1_9Yk-WiOMMjOTAY8a9zEtQV1r9nGWWvm/view?usp=sharing",
+  resumeUrl: "https://drive.google.com/file/d/1YvNBd0ZyZafaIB31DuoaLH2uIwLWlNWt/view?usp=sharing",
 };
 
 export const aboutData = {

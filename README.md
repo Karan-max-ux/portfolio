@@ -9,7 +9,7 @@
 [![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-3.4-C4622D?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![License](https://img.shields.io/badge/License-MIT-1A1816?style=for-the-badge)](LICENSE)
 
-[💼 LinkedIn](https://www.linkedin.com/in/karan-singh-465470337) • [📫 Email Me](mailto:karansingh2436nda@gmail.com) • [📄 Resume](https://drive.google.com/file/d/1_9Yk-WiOMMjOTAY8a9zEtQV1r9nGWWvm/view?usp=sharing)
+[💼 LinkedIn](https://www.linkedin.com/in/karan-singh-465470337) • [📫 Email Me](mailto:karansingh2436nda@gmail.com) • [📄 Resume](https://drive.google.com/file/d/1YvNBd0ZyZafaIB31DuoaLH2uIwLWlNWt/view?usp=sharing)
 
 </div>
 
@@ -113,7 +113,7 @@ npm run build
 - **Email**: [karansingh2436nda@gmail.com](mailto:karansingh2436nda@gmail.com)
 - **LinkedIn**: [linkedin.com/in/karan-singh-465470337](https://www.linkedin.com/in/karan-singh-465470337)
 - **GitHub**: [@Karan-max-ux](https://github.com/Karan-max-ux)
-- **Resume**: [Google Drive Resume](https://drive.google.com/file/d/1_9Yk-WiOMMjOTAY8a9zEtQV1r9nGWWvm/view?usp=sharing)
+- **Resume**: [Google Drive Resume](https://drive.google.com/file/d/1YvNBd0ZyZafaIB31DuoaLH2uIwLWlNWt/view?usp=sharing)
 
 ---
 
