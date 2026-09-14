@@ -1,97 +1,45 @@
 import React from 'react';
 import { aboutData } from '../data/portfolioData';
-import { motion } from 'framer-motion';
-import GlowCard from './GlowCard';
 
 export default function About() {
   return (
-    <section id="about" className="py-20 bg-transparent border-t border-white/10 relative overflow-hidden">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="py-24 sm:py-32 border-b border-hairline">
+      <div className="max-w-6xl mx-auto px-6 sm:px-8">
         
-        {/* Section Heading with Scroll Reveal */}
-        <motion.div 
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6, ease: [0.2, 0.8, 0.2, 1] }}
-          className="mb-12"
-        >
-          <span className="text-xs font-mono uppercase tracking-widest text-[#00D6A3] mb-2 block">
-            About
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-sans">
-            {aboutData.heading}
-          </h2>
-        </motion.div>
+        {/* Section Index Marker */}
+        <div className="flex items-center gap-3 mb-16">
+          <span className="text-xs font-mono uppercase tracking-widest text-burnt">01</span>
+          <span className="h-[1px] w-8 bg-hairline" />
+          <span className="text-xs font-mono uppercase tracking-wider text-ink-soft">About Karan</span>
+        </div>
 
-        {/* Editorial Layout with Scroll Motion */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+        {/* Asymmetric Two-Column Editorial Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
-          {/* Main Conversational Narrative (7 cols) */}
-          <motion.div 
-            initial={{ opacity: 0, y: 28 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.7, delay: 0.1, ease: [0.2, 0.8, 0.2, 1] }}
-            className="lg:col-span-7 space-y-5 text-[#A1A1A1] font-sans text-base sm:text-lg leading-relaxed"
-          >
-            {aboutData.paragraphs.map((para, idx) => (
-              <p key={idx}>
-                {para}
+          {/* Left Column: Pull-Quote & Stat Highlight (4 cols) */}
+          <div className="lg:col-span-5 space-y-10">
+            <blockquote className="font-serif text-2xl sm:text-3xl text-ink leading-snug italic font-normal">
+              &ldquo;{aboutData.pullQuote}&rdquo;
+            </blockquote>
+
+            <div className="pt-8 border-t border-hairline">
+              <div className="font-serif text-4xl sm:text-5xl text-burnt font-normal mb-2">
+                {aboutData.statHighlight.number}
+              </div>
+              <p className="text-xs font-mono uppercase tracking-wider text-ink-soft">
+                {aboutData.statHighlight.label}
+              </p>
+            </div>
+          </div>
+
+          {/* Right Column: Flowing Narrative Prose (7 cols) */}
+          <div className="lg:col-span-7 space-y-6 text-base sm:text-lg text-ink-muted leading-relaxed font-normal">
+            {aboutData.narrative.map((paragraph, index) => (
+              <p key={index}>
+                {paragraph}
               </p>
             ))}
-          </motion.div>
-
-          {/* Secondary Editorial Sidebar (5 cols) with Glowing Cards */}
-          <motion.div 
-            initial={{ opacity: 0, y: 28 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.7, delay: 0.2, ease: [0.2, 0.8, 0.2, 1] }}
-            className="lg:col-span-5 space-y-6"
-          >
-            
-            {/* Currently Learning Block with Cursor Border Glow */}
-            <GlowCard 
-              glowColor="rgba(0, 214, 163, 0.22)"
-              borderGlowColor="rgba(0, 214, 163, 0.55)"
-              className="rounded-xl bg-[#0D0D0D] border border-white/10 p-5 shadow-sm glow-on-hover"
-            >
-              <h3 className="text-xs font-mono uppercase tracking-wider text-[#888888] mb-3 flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#00D6A3]" />
-                Currently learning
-              </h3>
-              <ul className="space-y-2 text-sm font-sans text-white">
-                {aboutData.currentlyLearning.map((item, idx) => (
-                  <li key={idx} className="flex items-center gap-2">
-                    <span className="text-[#00D6A3] font-mono">→</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </GlowCard>
-
-            {/* Outside Code Block with Cyan Border Glow */}
-            <GlowCard 
-              glowColor="rgba(34, 199, 216, 0.22)"
-              borderGlowColor="rgba(34, 199, 216, 0.55)"
-              className="rounded-xl bg-[#0D0D0D] border border-white/10 p-5 shadow-sm glow-on-hover-cyan"
-            >
-              <h3 className="text-xs font-mono uppercase tracking-wider text-[#888888] mb-3 flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#22C7D8]" />
-                Outside code
-              </h3>
-              <ul className="space-y-2 text-sm font-sans text-white">
-                {aboutData.outsideCode.map((item, idx) => (
-                  <li key={idx} className="flex items-center gap-2">
-                    <span className="text-[#22C7D8] font-mono">→</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </GlowCard>
-
-          </motion.div>
+          </div>
 
         </div>
 

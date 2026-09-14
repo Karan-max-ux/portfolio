@@ -1,71 +1,53 @@
 import React from 'react';
-import { skillsData } from '../data/portfolioData';
-import { motion } from 'framer-motion';
-import GlowCard from './GlowCard';
+import { skillsGrouped } from '../data/portfolioData';
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-20 bg-transparent border-t border-white/10 relative overflow-hidden">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="skills" className="py-24 sm:py-32 border-b border-hairline">
+      <div className="max-w-6xl mx-auto px-6 sm:px-8">
         
-        {/* Section Header with Scroll Reveal */}
-        <motion.div 
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6, ease: [0.2, 0.8, 0.2, 1] }}
-          className="mb-14"
-        >
-          <span className="text-xs font-mono uppercase tracking-widest text-[#00D6A3] mb-2 block">
-            Skills
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-sans">
-            {skillsData.heading}
+        {/* Section Header */}
+        <div className="flex items-center gap-3 mb-16">
+          <span className="text-xs font-mono uppercase tracking-widest text-burnt">05</span>
+          <span className="h-[1px] w-8 bg-hairline" />
+          <span className="text-xs font-mono uppercase tracking-wider text-ink-soft">Technical Competencies</span>
+        </div>
+
+        {/* Asymmetric Header */}
+        <div className="max-w-2xl mb-16">
+          <h2 className="font-serif text-3xl sm:text-5xl text-ink font-normal tracking-tight mb-4">
+            Tools of the craft.
           </h2>
-          <p className="text-sm sm:text-base text-[#A1A1A1] max-w-xl mt-2 font-sans">
-            {skillsData.subheading}
+          <p className="text-sm sm:text-base text-ink-muted leading-relaxed font-normal">
+            A focused stack centered on the JavaScript/TypeScript ecosystem for scalable web products, supported by strong fundamentals in C/C++ and Java.
           </p>
-        </motion.div>
+        </div>
 
-        {/* Grouped Typography Layout with Cursor-Glowing Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {skillsData.groups.map((group, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: idx * 0.08, ease: [0.2, 0.8, 0.2, 1] }}
-              whileHover={{ y: -4 }}
+        {/* Plain Grouped Text Rows (Full Width, No Cards, No Icons) */}
+        <div className="divide-y divide-hairline border-t border-b border-hairline">
+          {skillsGrouped.map((group, index) => (
+            <div 
+              key={index}
+              className="py-7 grid grid-cols-1 sm:grid-cols-12 gap-4 sm:gap-8 items-baseline"
             >
-              <GlowCard 
-                className="rounded-xl bg-[#0D0D0D] border border-white/10 p-6 space-y-3 shadow-xl glow-on-hover"
-                glowColor="rgba(0, 214, 163, 0.2)"
-                borderGlowColor="rgba(0, 214, 163, 0.5)"
-              >
-                {/* Category Title */}
-                <div className="flex items-center gap-2 pb-2 border-b border-white/10">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#00D6A3]" />
-                  <h3 className="text-xs font-mono uppercase tracking-wider text-white font-semibold">
-                    {group.name}
-                  </h3>
-                </div>
-
-                {/* Naturally Formatted Skills List with Middle Dot Separators */}
-                <div className="text-sm font-sans text-[#A1A1A1] leading-relaxed pt-1">
+              <div className="sm:col-span-3">
+                <span className="text-xs font-mono uppercase tracking-wider text-ink-soft">
+                  {group.category}
+                </span>
+              </div>
+              <div className="sm:col-span-9">
+                <p className="font-serif text-lg sm:text-xl text-ink font-normal tracking-tight leading-relaxed">
                   {group.skills.map((skill, sIdx) => (
                     <span key={sIdx}>
-                      <span className="hover:text-white transition-colors cursor-default">
-                        {skill}
-                      </span>
+                      <span className="hover:text-burnt transition-colors cursor-default">{skill}</span>
                       {sIdx < group.skills.length - 1 && (
-                        <span className="text-[#666666] mx-2 select-none">·</span>
+                        <span className="text-hairline mx-3 select-none">·</span>
                       )}
                     </span>
                   ))}
-                </div>
-              </GlowCard>
-            </motion.div>
+                </p>
+              </div>
+            </div>
           ))}
         </div>
 

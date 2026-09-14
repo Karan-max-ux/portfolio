@@ -1,97 +1,66 @@
 import React from 'react';
 import { certificationsData } from '../data/portfolioData';
 import { ArrowUpRight } from 'lucide-react';
-import { motion } from 'framer-motion';
-import GlowCard from './GlowCard';
 
-export default function Certifications({ onOpenPlaceholder }) {
+export default function Certifications() {
   return (
-    <section id="certifications" className="py-20 bg-transparent border-t border-white/10 relative overflow-hidden">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24 sm:py-32 border-b border-hairline">
+      <div className="max-w-6xl mx-auto px-6 sm:px-8">
         
-        {/* Section Header with Scroll Reveal */}
-        <motion.div 
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6, ease: [0.2, 0.8, 0.2, 1] }}
-          className="mb-12"
-        >
-          <span className="text-xs font-mono uppercase tracking-widest text-[#00D6A3] mb-2 block">
-            Certifications
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-sans">
-            Validated Knowledge
+        {/* Section Header */}
+        <div className="flex items-center gap-3 mb-16">
+          <span className="text-xs font-mono uppercase tracking-widest text-burnt">06</span>
+          <span className="h-[1px] w-8 bg-hairline" />
+          <span className="text-xs font-mono uppercase tracking-wider text-ink-soft">Certifications</span>
+        </div>
+
+        {/* Asymmetric Header */}
+        <div className="max-w-2xl mb-12">
+          <h2 className="font-serif text-3xl sm:text-4xl text-ink font-normal tracking-tight mb-4">
+            Credentials & assessments.
           </h2>
-          <p className="text-sm sm:text-base text-[#A1A1A1] max-w-xl mt-2 font-sans">
-            Assessments and technical certifications covering full-stack web and developer tooling.
-          </p>
-        </motion.div>
+        </div>
 
-        {/* Compact List with Cursor Glow */}
-        <motion.div 
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.6, ease: [0.2, 0.8, 0.2, 1] }}
-        >
-          <GlowCard 
-            className="rounded-xl bg-[#0D0D0D] border border-white/10 divide-y divide-white/10 overflow-hidden shadow-2xl glow-on-hover"
-            glowColor="rgba(34, 199, 216, 0.2)"
-            borderGlowColor="rgba(34, 199, 216, 0.5)"
-          >
-            {certificationsData.map((cert, idx) => (
-              <div 
-                key={idx}
-                className="p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:bg-white/[0.04] transition-colors"
-              >
-                <div className="space-y-1">
-                  <div className="flex items-center gap-2.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#22C7D8]" />
-                    <h3 className="text-base font-semibold text-white font-sans">
-                      {cert.name}
-                    </h3>
-                  </div>
-                  <p className="text-xs text-[#888888] font-sans pl-4">
-                    {cert.details} · <span className="text-[#A1A1A1]">{cert.issuer}</span>
-                  </p>
-                </div>
-
-                <div className="flex items-center gap-4 pl-4 sm:pl-0 shrink-0">
-                  <span className="text-xs font-mono text-[#666666]">
-                    {cert.date}
+        {/* Simple List (No Cards, Clickable Direct Links) */}
+        <div className="divide-y divide-hairline border-t border-b border-hairline">
+          {certificationsData.map((cert, index) => {
+            const Content = (
+              <>
+                <div className="flex items-baseline gap-4 max-w-2xl">
+                  <span className="text-burnt font-mono text-sm select-none">—</span>
+                  <span className="font-serif text-lg sm:text-xl text-ink font-normal group-hover:text-burnt transition-colors flex items-center gap-1.5">
+                    <span>{cert.name}</span>
+                    {cert.url && (
+                      <ArrowUpRight className="w-4 h-4 text-ink-soft group-hover:text-burnt transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shrink-0" />
+                    )}
                   </span>
-
-                  {cert.url ? (
-                    <motion.a
-                      href={cert.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="inline-flex items-center gap-1 text-xs font-mono text-[#22C7D8] hover:underline"
-                    >
-                      <span>View</span>
-                      <ArrowUpRight className="w-3.5 h-3.5" />
-                    </motion.a>
-                  ) : (
-                    <button
-                      onClick={() => onOpenPlaceholder({
-                        title: `${cert.name} Credential`,
-                        fieldName: `cert.url`,
-                        message: `Attach your official credential certificate or verification link in src/data/portfolioData.js.`
-                      })}
-                      className="inline-flex items-center gap-1 text-xs font-mono text-[#22C7D8] hover:underline cursor-pointer"
-                    >
-                      <span>Credential</span>
-                      <ArrowUpRight className="w-3 h-3" />
-                    </button>
-                  )}
                 </div>
+                <span className="text-xs font-mono text-ink-soft tracking-wider sm:text-right shrink-0">
+                  {cert.type}
+                </span>
+              </>
+            );
+
+            return cert.url ? (
+              <a
+                key={index}
+                href={cert.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="py-6 flex flex-col sm:flex-row sm:items-baseline justify-between gap-3 group transition-colors"
+              >
+                {Content}
+              </a>
+            ) : (
+              <div 
+                key={index}
+                className="py-6 flex flex-col sm:flex-row sm:items-baseline justify-between gap-3 group"
+              >
+                {Content}
               </div>
-            ))}
-          </GlowCard>
-        </motion.div>
+            );
+          })}
+        </div>
 
       </div>
     </section>

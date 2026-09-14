@@ -2,89 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --canvas: #000000;
-  --canvas-subtle: #080808;
-  --surface: #0D0D0D;
-  --surface-card: #111111;
-  --surface-button: #141414;
-  --border-white: rgba(255, 255, 255, 0.1);
-  --border-white-subtle: rgba(255, 255, 255, 0.06);
-  --border-white-strong: rgba(255, 255, 255, 0.18);
-  --accent-green: #00D6A3;
-  --accent-cyan: #22C7D8;
-  --accent-purple: #9B8AFB;
-  --txt-primary: #FFFFFF;
-  --txt-secondary: #A1A1A1;
-  --txt-muted: #666666;
-}
-
 @layer base {
   html {
     scroll-behavior: smooth;
-    color-scheme: dark;
-    background-color: #000000;
+    background-color: #F5F2EC;
+    color: #1A1816;
   }
   
   body {
-    background-color: #000000;
-    color: #FFFFFF;
+    background-color: #F5F2EC;
+    color: #1A1816;
     overflow-x: hidden;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
   }
 
   ::selection {
-    background: rgba(0, 214, 163, 0.25);
-    color: #00D6A3;
+    background-color: rgba(196, 98, 45, 0.15);
+    color: #C4622D;
   }
 
+  /* Minimal editorial scrollbar */
   ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #000000;
+    background: #F5F2EC;
   }
   ::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.15);
+    background: #DDD8CE;
     border-radius: 3px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.3);
+    background: #C4622D;
   }
 }
 
 @layer utilities {
-  .theme-border {
-    border: 1px solid rgba(255, 255, 255, 0.1);
+  .hairline-b {
+    border-bottom: 1px solid #DDD8CE;
   }
-  
-  .theme-border-strong {
-    border: 1px solid rgba(255, 255, 255, 0.18);
+  .hairline-t {
+    border-top: 1px solid #DDD8CE;
   }
-  
-  .theme-card {
-    background-color: #0D0D0D;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+  .hairline-r {
+    border-right: 1px solid #DDD8CE;
   }
-
-  /* Glowing Border Effect on Hover / Cursor */
-  .glow-on-hover {
-    position: relative;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  .hairline-l {
+    border-left: 1px solid #DDD8CE;
   }
-  .glow-on-hover:hover {
-    border-color: rgba(0, 214, 163, 0.4) !important;
-    box-shadow: 0 0 20px -3px rgba(0, 214, 163, 0.18), inset 0 0 10px rgba(0, 214, 163, 0.02) !important;
-  }
-
-  .glow-on-hover-cyan:hover {
-    border-color: rgba(34, 199, 216, 0.4) !important;
-    box-shadow: 0 0 20px -3px rgba(34, 199, 216, 0.18), inset 0 0 10px rgba(34, 199, 216, 0.02) !important;
-  }
-
-  .glow-on-hover-purple:hover {
-    border-color: rgba(155, 138, 251, 0.4) !important;
-    box-shadow: 0 0 20px -3px rgba(155, 138, 251, 0.18), inset 0 0 10px rgba(155, 138, 251, 0.02) !important;
+  .hairline-all {
+    border: 1px solid #DDD8CE;
   }
 }

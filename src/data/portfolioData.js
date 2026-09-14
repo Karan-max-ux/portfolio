@@ -1,212 +1,164 @@
 /**
- * Karan Singh - Personal Portfolio Data
- * Grounded in authentic developer personality, clean hierarchy, and intentional storytelling.
+ * Karan Singh — Editorial Portfolio Data
+ * Grounded in verified details, journal updates, and project records.
  */
 
 export const personalInfo = {
   name: "Karan Singh",
-  firstName: "Karan",
-  greeting: "Hey, I'm Karan.",
-  bio: "I build full-stack web applications, solve problems, and occasionally spend way too long debugging one missing semicolon.",
-  roleTitle: "MERN Stack Developer · CSE Student",
+  title: "MERN Stack Developer & Full-Stack Engineer",
+  heroHeadline: "Hey, I'm Karan.",
+  heroSubheadline: "I build full-stack web applications, solve problems, and occasionally spend way too long debugging one missing semicolon.",
+  metadataLine: "MERN Stack Developer · CSE Student, LPU · Aspiring Software Engineer",
+  statusLine: "Open to internships & developer opportunities",
   location: "Pune, India",
-  availability: "Open to internships & developer opportunities",
   email: "karansingh2436nda@gmail.com",
   linkedinUrl: "https://www.linkedin.com/in/karan-singh-465470337",
   githubUrl: "https://github.com/Karan-max-ux",
-  githubDisplay: "github.com/Karan-max-ux",
-  
-  // Right side terminal widget data
-  terminalWidget: {
-    directory: "~/karan",
-    whoami: "karan.dev",
-    stack: ["React", "Node", "Express", "MongoDB"],
-    status: "building"
-  }
-};
-
-export const nowData = {
-  sectionLabel: "NOW",
-  headline: "What I'm up to right now",
-  items: [
-    {
-      category: "Building",
-      description: "Portfolio + personal projects",
-      accent: "green"
-    },
-    {
-      category: "Learning",
-      description: "System Design, Advanced React & DSA",
-      accent: "cyan"
-    },
-    {
-      category: "Next",
-      description: "Build a real-world SaaS project",
-      accent: "purple"
-    }
-  ]
+  resumeUrl: "https://drive.google.com/file/d/1_9Yk-WiOMMjOTAY8a9zEtQV1r9nGWWvm/view?usp=sharing",
 };
 
 export const aboutData = {
-  heading: "A little about me",
-  paragraphs: [
-    "I'm a Computer Science student who enjoys turning random ideas into working software.",
-    "I started with frontend development, got curious about what happens behind the UI, and eventually ended up learning Node, Express and MongoDB.",
-    "These days I'm focused on building full-stack applications and becoming a better engineer — not just writing code that works, but code that is actually maintainable."
-  ],
-  currentlyLearning: [
-    "Advanced React",
-    "System Design",
-    "DSA"
-  ],
-  outsideCode: [
-    "Music",
-    "Exploring new places",
-    "Late-night debugging"
+  pullQuote: "Turning ideas into functional, resilient software under real-world pressure.",
+  statHighlight: {
+    number: "10+",
+    label: "Production REST APIs designed & deployed"
+  },
+  narrative: [
+    "I'm a Computer Science and Engineering student at Lovely Professional University, passionate about building full-stack web applications that solve real problems.",
+    "My focus is the MERN stack — MongoDB, Express.js, React.js, and Node.js — where I enjoy turning ideas into functional, user-friendly products.",
+    "I love hackathons because they push me to build fast and think creatively under pressure.",
+    "I'm always looking to learn, build, and collaborate on projects that challenge me to grow as a developer."
   ]
 };
 
-export const projectsData = [
-  {
-    id: "budgetwise",
-    number: "01",
-    name: "BudgetWise",
-    tagline: "Role-Based Institutional Budget Management System",
-    description: "A multi-tier financial management platform built for institutional transparency, role-based budget allocations, and real-time expense oversight.",
-    whyIBuiltIt: "I wanted to understand how real-world authentication and protected routes work instead of only following tutorials, especially when different departments need strict data isolation.",
-    whatILearned: "Granular JWT role models, structuring interdependent MongoDB schemas, and rendering responsive financial metrics with Chart.js.",
-    technologies: ["MongoDB", "Express.js", "React.js", "Node.js", "Chart.js", "JWT"],
-    githubUrl: null, // Placeholder or link
-    liveUrl: null,   // Placeholder or link
-    previewLabel: "Institutional Dashboard & Analytics Preview"
-  },
-  {
-    id: "swiftservice-now",
-    number: "02",
-    name: "SwiftService Now",
-    tagline: "On-Demand Local Service Provider Matching Platform",
-    description: "A platform connecting users with local service technicians through intelligent matching algorithms tailored to proximity and specialized requirements.",
-    whyIBuiltIt: "Finding reliable local service providers is usually fragmented and slow. I wanted to build an automated matching pipeline to reduce waiting friction between client requests and technician dispatch.",
-    whatILearned: "Implementing proximity-based recommendation heuristics, optimizing API response payloads, which reduced overall request fulfillment time by 20%.",
-    technologies: ["React.js", "Node.js", "Express.js", "AI Matching Logic", "REST APIs"],
-    githubUrl: "https://github.com/Karan-max-ux/swift-service-now",
-    liveUrl: "https://swift-service-now.vercel.app/",
-    previewLabel: "On-Demand Service Matching Live UI"
-  }
-];
-
-export const skillsData = {
-  heading: "Technical Toolkit",
-  subheading: "Technologies I use to build scalable web products",
-  groups: [
-    {
-      name: "Frontend",
-      skills: ["React", "JavaScript", "HTML", "CSS", "Tailwind"]
-    },
-    {
-      name: "Backend",
-      skills: ["Node.js", "Express.js", "REST APIs"]
-    },
-    {
-      name: "Database",
-      skills: ["MongoDB", "MySQL"]
-    },
-    {
-      name: "Tools",
-      skills: ["Git", "GitHub", "Postman", "VS Code"]
-    },
-    {
-      name: "Languages",
-      skills: ["C", "C++", "Java", "Python"]
-    }
+export const nowData = {
+  lastUpdated: "Last updated — 2026",
+  statusItems: [
+    "Working full-time as a Full Stack Developer Intern at InternsVeda",
+    "Practicing DSA in C++",
+    "Exploring TypeScript",
+    "Open to full-time software engineering roles"
   ]
 };
 
 export const timelineData = [
   {
-    type: "experience",
-    role: "Full Stack Web Developer Intern",
-    organization: "InternsVeda",
-    period: "Nov 2024 — Present",
-    location: "Pune / Remote",
-    badge: "Current Role",
-    summary: "Working across the full JavaScript stack, building modular UI components and scalable backend APIs.",
-    points: [
-      "Engineered 5+ responsive production features in React.js and Express.js with clean component architecture.",
-      "Designed and deployed 10+ RESTful API endpoints with secure client-server communication.",
-      "Worked with secure CRUD operations, database queries, and user authentication workflows.",
-      "Collaborated with peers in code reviews and optimized API endpoints to reduce latency."
-    ],
-    technologies: ["React.js", "Node.js", "Express.js", "REST APIs", "CRUD"]
+    year: "2024",
+    title: "Lovely Professional University",
+    role: "B.Tech in Computer Science and Engineering",
+    description: "Enrolled in core software engineering, computer science fundamentals, data structures, and algorithms."
   },
   {
-    type: "education",
-    role: "Computer Science and Engineering",
-    organization: "Lovely Professional University (LPU)",
-    period: "Graduation 2024",
-    location: "Punjab, India",
-    badge: "B.Tech CSE",
-    summary: "Core foundations in computer engineering, algorithmic thinking, and modern web architecture.",
-    points: [
-      "Key coursework: Data Structures, Algorithms, Software Engineering, Database Systems, Computer Networks.",
-      "Active participant in technical sprints, hackathons, and collaborative engineering builds.",
-      "Focused practical specialization on MERN full-stack application development."
-    ],
-    technologies: ["Data Structures", "Algorithms", "DBMS", "System Architecture"]
+    year: "2024",
+    title: "Tata Group (via Forage)",
+    role: "Data & Technology Virtual Intern",
+    description: "Analyzed business workflows and enterprise architectures to map client requirements to practical technology solutions."
+  },
+  {
+    year: "Nov 2024 → Present",
+    title: "InternsVeda",
+    role: "Full Stack Web Developer Intern",
+    description: "Architecting responsive interfaces, designing scalable micro-services, and optimizing API performance.",
+    isCurrent: true,
+    expandedDetails: [
+      "Engineered 5+ responsive web features using React.js, Node.js, and Express.js with modular, reusable component architecture",
+      "Designed and deployed 10+ RESTful APIs handling secure CRUD operations, authentication, and complex database queries",
+      "Partnered with cross-functional teams on peer code reviews and debugging",
+      "Optimized API endpoints, measurably reducing latency"
+    ]
+  },
+  {
+    year: "2025",
+    title: "BudgetWise Hackathon Build",
+    role: "48-Hour Sprint Project",
+    description: "Architected a role-based institutional budget management system with secure JWT authentication and Chart.js dashboards."
+  },
+  {
+    year: "2025",
+    title: "SwiftService Now Hackathon Build",
+    role: "36-Hour Sprint Project",
+    description: "Engineered an AI-powered on-demand provider connection platform, improving service fulfillment time by 20%."
+  },
+  {
+    year: "2026",
+    title: "Professional Certifications",
+    role: "Full Stack & Linux Engineering",
+    description: "Certified in Full Stack Web Development, Linux for Developers, and competitive Adobe India Hackathon online assessment."
+  }
+];
+
+export const projectsData = [
+  {
+    id: "budgetwise",
+    title: "BudgetWise",
+    context: "Group Project",
+    constraintLabel: "PROJECT TYPE",
+    description: "Role-based institutional budget management system with secure JWT authentication and Chart.js dashboards for financial analytics.",
+    tech: ["MERN Stack", "JWT", "Chart.js"],
+    githubUrl: "https://github.com/Parssharma/Blank",
+    liveUrl: "https://budegt-wise.vercel.app/login.html",
+    metrics: "Collaborative Build · Financial Visualizations",
+    specimenType: "Fintech Dashboard"
+  },
+  {
+    id: "swiftservice-now",
+    title: "SwiftService Now",
+    context: "36-Hour Hackathon",
+    description: "A platform connecting users with local service providers, integrating AI-based matching that improved fulfillment time by 20%.",
+    tech: ["AI-Based Matching", "Full Stack Web"],
+    githubUrl: "https://github.com/Karan-max-ux/swift-service-now",
+    liveUrl: "https://swift-service-now.vercel.app/",
+    metrics: "+20% Fulfillment Velocity · 36-Hour Build",
+    specimenType: "AI Matching Platform"
+  }
+];
+
+export const skillsGrouped = [
+  {
+    category: "Languages",
+    skills: ["C", "C++", "Java", "JavaScript (ES6+)", "Python", "TypeScript"]
+  },
+  {
+    category: "Frontend",
+    skills: ["React.js", "HTML", "CSS"]
+  },
+  {
+    category: "Backend",
+    skills: ["Node.js", "Express.js", "REST APIs", "JWT"]
+  },
+  {
+    category: "Database",
+    skills: ["MongoDB", "Mongoose"]
+  },
+  {
+    category: "Tools",
+    skills: ["Git", "GitHub", "Chart.js"]
   }
 ];
 
 export const certificationsData = [
   {
-    name: "Round 1 MCQ Assessment + Coding of Adobe India Hackathon",
-    details: "Certificate of Participation",
-    issuer: "Adobe India / Unstop",
-    date: "2024",
-    type: "Assessment",
-    url: "https://unstop.com/certificate-preview/2603663a-f24d-4e15-bade-4aeacfb8873c?utm_campaign=site-emails"
-  },
-  {
     name: "Full Stack Web Development Certification",
-    details: "Comprehensive Full Stack Architecture & REST APIs",
-    issuer: "Professional Course",
-    date: "2024",
-    type: "Certification",
-    url: null
+    type: "Professional Certification",
+    url: "https://drive.google.com/file/d/1H853TxkQ3kXsELb5DT3ypWO_WZnHDlle/view?usp=sharing"
   },
   {
-    name: "Linux for Developers",
-    details: "Command Line, Environment Setup & Systems",
-    issuer: "Technical Training",
-    date: "2024",
-    type: "Certification",
+    name: "Linux for Developers Certification",
+    type: "System Engineering",
     url: "https://drive.google.com/file/d/10i0W6Z7tbnZSBb7vrdrLEdseZshzMupm/view?usp=sharing"
+  },
+  {
+    name: "Certificate of Participation in Round 1 - Online MCQ Assessment + Coding of Adobe India Hackathon",
+    type: "Competitive Hackathon Assessment",
+    url: "https://unstop.com/certificate-preview/2603663a-f24d-4e15-bade-4aeacfb8873c?utm_campaign=site-emails"
   }
 ];
 
-export const contactData = {
-  heading: "Have an idea?",
-  subheading: "Let's build something.",
-  description: "I'm always interested in interesting projects, internships, collaborations, or simply talking about tech.",
-  email: "karansingh2436nda@gmail.com",
-  linkedinUrl: "https://www.linkedin.com/in/karan-singh-465470337",
-  githubUrl: "https://github.com/Karan-max-ux",
-  location: "Pune, India"
-};
-
-export const footerData = {
-  heading: "That's all for now.",
-  subtext: "If you made it this far, you should probably say hi.",
-  tagline: "Built with React, caffeine & questionable debugging decisions.",
-  copyright: "© 2026 Karan Singh"
-};
-
 export const navLinks = [
-  { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
   { name: "Now", href: "#now" },
+  { name: "Timeline", href: "#timeline" },
   { name: "Projects", href: "#projects" },
   { name: "Skills", href: "#skills" },
-  { name: "Timeline", href: "#experience" },
-  { name: "Certifications", href: "#certifications" },
   { name: "Contact", href: "#contact" }
 ];

@@ -1,15 +1,15 @@
 <div align="center">
 
-# ⚡ Karan Singh — Personal Developer Portfolio
+# Karan Singh — Personal Developer Portfolio
 
 **MERN Stack Developer | Full-Stack Engineer | Aspiring Software Engineer**
 
 [![React](https://img.shields.io/badge/React-18.3-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-6.1-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
-[![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![License](https://img.shields.io/badge/License-MIT-emerald?style=for-the-badge)](LICENSE)
+[![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-3.4-C4622D?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![License](https://img.shields.io/badge/License-MIT-1A1816?style=for-the-badge)](LICENSE)
 
-[🌐 Live Portfolio Preview](http://localhost:3000) • [💼 LinkedIn](https://www.linkedin.com/in/karan-singh-465470337) • [📫 Email Me](mailto:karansingh2436nda@gmail.com)
+[💼 LinkedIn](https://www.linkedin.com/in/karan-singh-465470337) • [📫 Email Me](mailto:karansingh2436nda@gmail.com) • [📄 Resume](https://drive.google.com/file/d/1_9Yk-WiOMMjOTAY8a9zEtQV1r9nGWWvm/view?usp=sharing)
 
 </div>
 
@@ -17,25 +17,25 @@
 
 ## 👨‍💻 About Karan Singh
 
-I'm a Computer Science and Engineering student at **Lovely Professional University (LPU)**, passionate about building robust, scalable, full-stack web applications that solve real-world problems.
+I'm a Computer Science and Engineering student at **Lovely Professional University (LPU)**, passionate about building full-stack web applications that solve real problems.
 
 - 🛠️ **Primary Stack**: MongoDB, Express.js, React.js, Node.js (MERN)
 - 🚀 **Experience**: Full Stack Web Developer Intern at **InternsVeda** (`Nov 2024 - Present`)
-- 🏆 **Hackathons**: Active participant in 36h & 48h hackathons, rapid prototyping, and AI-assisted matchmaking platforms.
-- 📍 **Location**: Pune / Pimpri-Chinchwad, India
+- 🏆 **Projects & Sprints**: 36h & 48h hackathon engineering, AI-driven matchmaking, role-based budget allocations.
+- 🎓 **Education**: B.Tech CSE, Lovely Professional University
 
 ---
 
-## ✨ Portfolio Highlights & Features
+## ✨ Design Identity & Highlights
 
-- 🌌 **Dark Developer Aesthetics**: Designed with modern slate/charcoal tones, subtle emerald and cyan glows, and glassmorphic card elements.
-- 🧭 **Sticky Smart Navigation**: Smooth-scrolling anchor navigation across all 9 sections with active section highlighting and mobile drawer support.
-- 📊 **Key Metrics & Experience Timeline**: Displays 5+ responsive features, 10+ RESTful APIs, 2+ hackathons, and detailed internship achievements.
-- 📂 **Featured Projects & Sprint Builds**:
-  - **[BudgetWise](https://budegt-wise.vercel.app/login.html)**: Role-based institutional budget management system built during a 48h hackathon ([GitHub Repo](https://github.com/Parssharma/Blank)).
-  - **[SwiftService Now](https://swift-service-now.vercel.app/)**: AI-powered on-demand local service provider platform built during a 36h hackathon ([GitHub Repo](https://github.com/Karan-max-ux/swift-service-now)).
-- 📱 **100% Responsive**: Tailored for Desktop, Laptop, Tablet, and Mobile screens.
-- ✉️ **Interactive Contact Form**: Client-side validation with prefilled mail client dispatch.
+- 📰 **Editorial & Typography-Led**: Designed with warm off-white / bone canvas (`#F5F2EC`), deep ink charcoal typography (`#1A1816`), and a single muted burnt orange accent (`#C4622D`).
+- ✍️ **Display Serif Typography**: Headlines set in high-contrast editorial serifs (*Newsreader* & *Fraunces*), paired with clean *Inter* prose and *JetBrains Mono* metadata.
+- 📐 **Asymmetric Layouts**: Generous negative space, pull-quotes, and alternating project specimen rows replacing generic card grids.
+- ⏱️ **Linear Timeline**: Chronological progression branching from 2024 to 2026 including university foundations, virtual internships, and production deliverables.
+- 📂 **Featured Work**:
+  - **[BudgetWise](https://budegt-wise.vercel.app/login.html)**: Role-based institutional budget management system with secure JWT authentication and Chart.js dashboards ([GitHub Repo](https://github.com/Parssharma/Blank)).
+  - **[SwiftService Now](https://swift-service-now.vercel.app/)**: AI-powered on-demand local service provider platform improving fulfillment velocity by 20% ([GitHub Repo](https://github.com/Karan-max-ux/swift-service-now)).
+- 📜 **Validated Credentials**: Direct links to Full Stack, Linux for Developers, and Adobe India Hackathon certificates.
 
 ---
 
@@ -43,11 +43,11 @@ I'm a Computer Science and Engineering student at **Lovely Professional Universi
 
 | Category | Technologies & Tools |
 | :--- | :--- |
-| **Frontend** | HTML5, CSS3, JavaScript (ES6+), React.js, TypeScript |
-| **Backend** | Node.js, Express.js, REST APIs, JWT Authentication |
-| **Database** | MongoDB, Mongoose |
-| **Languages** | C, C++, Java, JavaScript, Python |
-| **Tools & Libraries** | Git, GitHub, Vite, Tailwind CSS, Lucide Icons, Chart.js |
+| **Languages** | C · C++ · Java · JavaScript (ES6+) · Python · TypeScript |
+| **Frontend** | React.js · HTML5 · CSS3 · Tailwind CSS |
+| **Backend** | Node.js · Express.js · REST APIs · JWT Authentication |
+| **Database** | MongoDB · Mongoose |
+| **Tools & Libraries** | Git · GitHub · Vite · Chart.js |
 
 ---
 
@@ -55,29 +55,27 @@ I'm a Computer Science and Engineering student at **Lovely Professional Universi
 
 ```
 d:/Potfolio/
-├── index.html                   # HTML5 entry, Google Fonts (Inter, JetBrains Mono) & SEO tags
+├── index.html                   # HTML5 entry, Google Fonts (Newsreader, Fraunces, Inter)
 ├── package.json                 # Dependencies & build scripts
-├── tailwind.config.js           # Custom theme colors, gradients, and glowing effects
+├── tailwind.config.js           # Editorial palette (bone, ink, burnt) & font families
 ├── postcss.config.js            # PostCSS processing
 ├── vite.config.js               # Vite config & dev server settings
 ├── src/
 │   ├── data/
-│   │   └── portfolioData.js     # Single source of truth for all projects, links & content
+│   │   └── portfolioData.js     # Single source of truth for projects, timeline & content
 │   ├── components/
-│   │   ├── Navbar.jsx           # Sticky glassmorphic nav with active section tracker
-│   │   ├── Hero.jsx             # Hero section with status pill, bio & quick action buttons
-│   │   ├── About.jsx            # Background narrative & 4 key metric cards
-│   │   ├── Skills.jsx           # Categorized interactive tech skill cards
-│   │   ├── Experience.jsx       # InternsVeda internship timeline card
-│   │   ├── Projects.jsx         # Featured projects with live demo & repo links
-│   │   ├── Certifications.jsx   # Validated certifications cards
-│   │   ├── Education.jsx        # Lovely Professional University CSE details
-│   │   ├── Contact.jsx          # Contact details & validated messaging form
-│   │   ├── Footer.jsx           # Quick links, social handles & copyright
-│   │   ├── ScrollToTop.jsx      # Floating scroll-to-top button
-│   │   └── PlaceholderModal.jsx # Informative modal for placeholder items
-│   ├── App.jsx                  # Main application layout
-│   ├── index.css                # Tailwind directives & custom dark glass styles
+│   │   ├── Navbar.jsx           # Editorial serif logo, text links & solid [Resume] button
+│   │   ├── Hero.jsx             # Left-aligned large serif introduction & plain text links
+│   │   ├── About.jsx            # Asymmetric pull-quote + narrative prose
+│   │   ├── Now.jsx              # Journal-like dated status list
+│   │   ├── Timeline.jsx         # Chronological linear record with embedded experience
+│   │   ├── Projects.jsx         # Asymmetric alternating showcases with specimen panels
+│   │   ├── Skills.jsx           # Plain grouped typography rows (no cards or icons)
+│   │   ├── Certifications.jsx   # Simple editorial bullet list with active links
+│   │   ├── Contact.jsx          # Large serif headline, direct email & minimalist form
+│   │   └── Footer.jsx           # Minimal sign-off & social links
+│   ├── App.jsx                  # Main application flow
+│   ├── index.css                # Tailwind directives & editorial base styling
 │   └── main.jsx                 # React root renderer
 └── README.md                    # Project documentation
 ```
@@ -85,9 +83,6 @@ d:/Potfolio/
 ---
 
 ## 🚀 Quick Start & Local Setup
-
-### Prerequisites
-Make sure you have [Node.js](https://nodejs.org/) (v18 or higher) and [Git](https://git-scm.com/) installed.
 
 ### 1. Clone the repository
 ```bash
@@ -110,17 +105,6 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 ```bash
 npm run build
 ```
-Production assets will be generated in the `dist/` directory.
-
----
-
-## ⚙️ Customization
-
-All personal details, project URLs, and social links are centralized in [`src/data/portfolioData.js`](src/data/portfolioData.js):
-- **Personal Info**: Update `personalInfo` (name, title, email, LinkedIn, GitHub).
-- **Projects**: Update `projectsData` (add new projects, live URLs, repository links).
-- **Hackathons**: Update `hackathonsData` (add sprint outcomes, duration, metrics).
-- **Certifications**: Update `certificationsData` (add certificates and links).
 
 ---
 
@@ -129,6 +113,7 @@ All personal details, project URLs, and social links are centralized in [`src/da
 - **Email**: [karansingh2436nda@gmail.com](mailto:karansingh2436nda@gmail.com)
 - **LinkedIn**: [linkedin.com/in/karan-singh-465470337](https://www.linkedin.com/in/karan-singh-465470337)
 - **GitHub**: [@Karan-max-ux](https://github.com/Karan-max-ux)
+- **Resume**: [Google Drive Resume](https://drive.google.com/file/d/1_9Yk-WiOMMjOTAY8a9zEtQV1r9nGWWvm/view?usp=sharing)
 
 ---
 

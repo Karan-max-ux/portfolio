@@ -1,228 +1,183 @@
 import React, { useState } from 'react';
-import { contactData } from '../data/portfolioData';
-import { 
-  Mail, 
-  Linkedin, 
-  Github, 
-  Copy, 
-  Check, 
-  ArrowUpRight,
-  Send,
-  MessageSquare
-} from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
-import GlowCard from './GlowCard';
+import { personalInfo } from '../data/portfolioData';
+import { ArrowUpRight, Check } from 'lucide-react';
 
-export default function Contact({ onOpenPlaceholder }) {
-  const [copiedEmail, setCopiedEmail] = useState(false);
-  const [showQuickForm, setShowQuickForm] = useState(false);
-  const [formState, setFormState] = useState({ name: '', email: '', message: '' });
-  const [sent, setSent] = useState(false);
+export default function Contact() {
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [submitted, setSubmitted] = useState(false);
+  const [copied, setCopied] = useState(false);
 
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText(contactData.email);
-    setCopiedEmail(true);
-    setTimeout(() => setCopiedEmail(false), 2500);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email || !formData.message) return;
+    const mailto = `mailto:${personalInfo.email}?subject=${encodeURIComponent(
+      `Portfolio Inquiry from ${formData.name}`
+    )}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`)}`;
+    window.location.href = mailto;
+    setSubmitted(true);
   };
 
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-    const mailto = `mailto:${contactData.email}?subject=${encodeURIComponent(
-      `Portfolio Message from ${formState.name}`
-    )}&body=${encodeURIComponent(
-      `Name: ${formState.name}\nEmail: ${formState.email}\n\nMessage:\n${formState.message}`
-    )}`;
-    setSent(true);
-    window.location.href = mailto;
-    setTimeout(() => {
-      setFormState({ name: '', email: '', message: '' });
-      setSent(false);
-    }, 4000);
+  const handleCopy = () => {
+    navigator.clipboard.writeText(personalInfo.email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   };
 
   return (
-    <section id="contact" className="py-24 bg-transparent border-t border-white/10 relative overflow-hidden">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left">
+    <section id="contact" className="py-24 sm:py-36 border-b border-hairline">
+      <div className="max-w-6xl mx-auto px-6 sm:px-8">
         
-        {/* Conversational Intro Block with Scroll Reveal */}
-        <motion.div 
-          initial={{ opacity: 0, y: 28 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6, ease: [0.2, 0.8, 0.2, 1] }}
-          className="space-y-4 max-w-2xl mb-12"
-        >
-          <span className="text-xs font-mono uppercase tracking-widest text-[#00D6A3] block">
-            {contactData.heading}
-          </span>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight font-sans">
-            {contactData.subheading}
-          </h2>
-          <p className="text-base sm:text-lg text-[#A1A1A1] font-sans leading-relaxed pt-1">
-            {contactData.description}
-          </p>
-        </motion.div>
+        {/* Section Header */}
+        <div className="flex items-center gap-3 mb-16">
+          <span className="text-xs font-mono uppercase tracking-widest text-burnt">07</span>
+          <span className="h-[1px] w-8 bg-hairline" />
+          <span className="text-xs font-mono uppercase tracking-wider text-ink-soft">Contact</span>
+        </div>
 
-        {/* Primary Conversational Action Buttons with Glow on Hover */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.6, delay: 0.15, ease: [0.2, 0.8, 0.2, 1] }}
-          className="flex flex-wrap items-center justify-center sm:justify-start gap-4 mb-8"
-        >
+        {/* Asymmetric Split: Large Typography Left, Flat Form Right */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
           
-          {/* Email Me Button */}
-          <motion.a
-            href={`mailto:${contactData.email}`}
-            whileHover={{ scale: 1.04, boxShadow: "0 0 25px rgba(0, 214, 163, 0.45)" }}
-            whileTap={{ scale: 0.96 }}
-            className="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-[#00D6A3] text-black font-sans font-semibold text-sm shadow-[0_0_20px_rgba(0,214,163,0.3)] transition-all active:scale-95 cursor-pointer"
-          >
-            <Mail className="w-4 h-4" />
-            <span>Email Me</span>
-          </motion.a>
+          {/* Left Column: Large Serif Headline, Email & Plain Links */}
+          <div className="lg:col-span-6 space-y-8">
+            <h2 className="font-serif text-5xl sm:text-7xl lg:text-8xl text-ink font-normal tracking-tight leading-none">
+              Let's talk.
+            </h2>
 
-          {/* Copy Email Button with Glow */}
-          <motion.button
-            onClick={handleCopyEmail}
-            whileHover={{ scale: 1.03, borderColor: "rgba(0, 214, 163, 0.5)", boxShadow: "0 0 20px rgba(0, 214, 163, 0.2)" }}
-            whileTap={{ scale: 0.97 }}
-            className="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-[#141414] text-[#A1A1A1] border border-white/15 hover:text-white text-sm font-sans transition-all active:scale-95 cursor-pointer"
-            title="Copy email address"
-          >
-            {copiedEmail ? (
-              <>
-                <Check className="w-4 h-4 text-[#00D6A3]" />
-                <span className="text-[#00D6A3] text-xs font-mono">Copied email!</span>
-              </>
-            ) : (
-              <>
-                <Copy className="w-4 h-4" />
-                <span className="text-xs font-mono">{contactData.email}</span>
-              </>
-            )}
-          </motion.button>
+            <p className="text-base sm:text-lg text-ink-muted leading-relaxed font-normal max-w-lg">
+              I'm always looking to learn, build, and collaborate on projects that challenge me to grow as a developer.
+            </p>
 
-          {/* LinkedIn Button with Cyan Glow */}
-          <motion.a
-            href={contactData.linkedinUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.03, borderColor: "rgba(34, 199, 216, 0.6)", boxShadow: "0 0 20px rgba(34, 199, 216, 0.25)" }}
-            whileTap={{ scale: 0.97 }}
-            className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#141414] text-white border border-white/15 font-sans text-sm font-medium transition-all active:scale-95"
-          >
-            <Linkedin className="w-4 h-4 text-[#22C7D8]" />
-            <span>LinkedIn</span>
-            <ArrowUpRight className="w-3.5 h-3.5 text-[#666666]" />
-          </motion.a>
+            {/* Large Clickable Email */}
+            <div className="pt-4">
+              <span className="text-xs font-mono uppercase tracking-wider text-ink-soft block mb-2">
+                Direct Email
+              </span>
+              <div className="flex flex-wrap items-baseline gap-4">
+                <a
+                  href={`mailto:${personalInfo.email}`}
+                  className="font-serif text-2xl sm:text-3xl text-ink hover:text-burnt transition-colors border-b border-hairline hover:border-burnt pb-1"
+                >
+                  {personalInfo.email}
+                </a>
+                <button
+                  onClick={handleCopy}
+                  className="text-xs font-mono text-ink-soft hover:text-burnt transition-colors underline"
+                  title="Copy to clipboard"
+                >
+                  {copied ? 'Copied!' : 'Copy'}
+                </button>
+              </div>
+            </div>
 
-          {/* GitHub Button with Purple Glow */}
-          <motion.a
-            href={contactData.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.03, borderColor: "rgba(155, 138, 251, 0.6)", boxShadow: "0 0 20px rgba(155, 138, 251, 0.25)" }}
-            whileTap={{ scale: 0.97 }}
-            className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#141414] text-white border border-white/15 font-sans text-sm font-medium transition-all active:scale-95"
-          >
-            <Github className="w-4 h-4" />
-            <span>GitHub</span>
-            <ArrowUpRight className="w-3.5 h-3.5 text-[#666666]" />
-          </motion.a>
-
-        </motion.div>
-
-        {/* Quick Note Toggle & Form with GlowCard */}
-        <div className="pt-4 border-t border-white/10">
-          {!showQuickForm ? (
-            <motion.button
-              onClick={() => setShowQuickForm(true)}
-              whileHover={{ x: 3 }}
-              className="text-xs font-mono text-[#888888] hover:text-[#00D6A3] transition-colors inline-flex items-center gap-1.5 cursor-pointer"
-            >
-              <MessageSquare className="w-3.5 h-3.5" />
-              <span>Or leave a quick message here directly →</span>
-            </motion.button>
-          ) : (
-            <motion.div 
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3 }}
-              className="mt-4 max-w-lg"
-            >
-              <GlowCard 
-                className="rounded-xl bg-[#0D0D0D] border border-white/15 p-6 text-left shadow-2xl glow-on-hover"
-                glowColor="rgba(0, 214, 163, 0.22)"
-                borderGlowColor="rgba(0, 214, 163, 0.6)"
+            {/* Plain Text Links Below (No Icon Buttons) */}
+            <div className="pt-8 border-t border-hairline/80 flex items-center gap-8 text-xs font-mono text-ink-soft">
+              <span className="text-ink-subtle">Network:</span>
+              
+              <a
+                href={personalInfo.linkedinUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-ink hover:text-burnt transition-colors flex items-center gap-1 border-b border-transparent hover:border-burnt pb-0.5"
               >
-                <form onSubmit={handleFormSubmit} className="space-y-4">
-                  <div className="flex items-center justify-between pb-2 border-b border-white/10">
-                    <span className="text-xs font-mono text-[#666666]">Quick Dispatch</span>
-                    <button
-                      type="button"
-                      onClick={() => setShowQuickForm(false)}
-                      className="text-xs font-mono text-[#888888] hover:text-white"
-                    >
-                      [Close]
-                    </button>
-                  </div>
+                <span>LinkedIn</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
 
-                  <div>
-                    <label className="block text-xs font-mono text-[#A1A1A1] mb-1">Your Name</label>
-                    <input
-                      type="text"
-                      required
-                      value={formState.name}
-                      onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                      placeholder="Alex"
-                      className="w-full px-3 py-2 rounded-lg bg-black border border-white/15 text-sm text-white focus:outline-none focus:border-[#00D6A3] focus:ring-1 focus:ring-[#00D6A3]"
-                    />
-                  </div>
+              <span className="text-hairline">/</span>
 
-                  <div>
-                    <label className="block text-xs font-mono text-[#A1A1A1] mb-1">Email Address</label>
-                    <input
-                      type="email"
-                      required
-                      value={formState.email}
-                      onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                      placeholder="alex@example.com"
-                      className="w-full px-3 py-2 rounded-lg bg-black border border-white/15 text-sm text-white focus:outline-none focus:border-[#00D6A3] focus:ring-1 focus:ring-[#00D6A3]"
-                    />
-                  </div>
+              <a
+                href={personalInfo.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-ink hover:text-burnt transition-colors flex items-center gap-1 border-b border-transparent hover:border-burnt pb-0.5"
+              >
+                <span>GitHub</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
+            </div>
 
-                  <div>
-                    <label className="block text-xs font-mono text-[#A1A1A1] mb-1">Message</label>
-                    <textarea
-                      required
-                      rows={3}
-                      value={formState.message}
-                      onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                      placeholder="Hey Karan, I'd love to chat about..."
-                      className="w-full px-3 py-2 rounded-lg bg-black border border-white/15 text-sm text-white focus:outline-none focus:border-[#00D6A3] focus:ring-1 focus:ring-[#00D6A3] resize-none"
-                    />
-                  </div>
+          </div>
 
-                  <div className="flex items-center justify-between pt-1">
-                    <motion.button
-                      type="submit"
-                      whileHover={{ scale: 1.03, boxShadow: "0 0 20px rgba(0, 214, 163, 0.4)" }}
-                      whileTap={{ scale: 0.97 }}
-                      className="inline-flex items-center gap-2 px-5 py-2 rounded-lg bg-[#00D6A3] text-black font-sans font-semibold text-xs shadow-sm transition-all"
-                    >
-                      <Send className="w-3.5 h-3.5" />
-                      <span>Send Message</span>
-                    </motion.button>
-                    {sent && (
-                      <span className="text-xs font-mono text-[#00D6A3]">Opening mail client...</span>
-                    )}
-                  </div>
-                </form>
-              </GlowCard>
-            </motion.div>
-          )}
+          {/* Right Column: Flat Minimalist Form (No Drop Shadows, 1px Hairline Borders) */}
+          <div className="lg:col-span-6 bg-bone-dark/40 border border-hairline p-8 sm:p-10">
+            <h3 className="font-serif text-2xl text-ink font-normal mb-2">
+              Send a note
+            </h3>
+            <p className="text-xs font-mono text-ink-soft mb-8">
+              Replies dispatched to your email client.
+            </p>
+
+            {submitted ? (
+              <div className="p-6 bg-bone border border-hairline text-center space-y-2">
+                <p className="font-serif text-xl text-ink font-normal">Thank you.</p>
+                <p className="text-xs font-mono text-ink-muted">
+                  Your mail client has been opened with your pre-filled inquiry.
+                </p>
+                <button
+                  onClick={() => setSubmitted(false)}
+                  className="mt-4 text-xs font-mono text-burnt underline"
+                >
+                  Send another message
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <label htmlFor="contact-name" className="block text-xs font-mono uppercase tracking-wider text-ink-soft mb-2">
+                    Name
+                  </label>
+                  <input
+                    id="contact-name"
+                    type="text"
+                    required
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    className="w-full bg-bone border border-hairline px-4 py-3 text-sm text-ink placeholder:text-ink-subtle focus:outline-none focus:border-burnt transition-colors rounded-none"
+                    placeholder="Your name"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="contact-email" className="block text-xs font-mono uppercase tracking-wider text-ink-soft mb-2">
+                    Email
+                  </label>
+                  <input
+                    id="contact-email"
+                    type="email"
+                    required
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className="w-full bg-bone border border-hairline px-4 py-3 text-sm text-ink placeholder:text-ink-subtle focus:outline-none focus:border-burnt transition-colors rounded-none"
+                    placeholder="your@email.com"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="contact-message" className="block text-xs font-mono uppercase tracking-wider text-ink-soft mb-2">
+                    Message
+                  </label>
+                  <textarea
+                    id="contact-message"
+                    required
+                    rows={4}
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    className="w-full bg-bone border border-hairline px-4 py-3 text-sm text-ink placeholder:text-ink-subtle focus:outline-none focus:border-burnt transition-colors rounded-none resize-none"
+                    placeholder="Project details or inquiry..."
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full py-3.5 bg-ink hover:bg-burnt text-bone text-xs font-medium uppercase tracking-wider transition-colors"
+                >
+                  Send Message
+                </button>
+              </form>
+            )}
+
+          </div>
+
         </div>
 
       </div>

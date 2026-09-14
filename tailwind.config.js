@@ -4,49 +4,37 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  darkMode: 'class',
   theme: {
     extend: {
       colors: {
-        // Deep Black Canvas & Neutral Surfaces
-        black: '#000000',
-        canvas: {
-          DEFAULT: '#000000',
-          subtle: '#080808',
+        bone: {
+          DEFAULT: '#F5F2EC',
+          light: '#FAF8F5',
+          dark: '#ECE7DE',
+          deep: '#E2DCD1',
         },
-        surface: {
-          DEFAULT: '#0D0D0D',
-          card: '#111111',
-          button: '#141414',
-          elevated: '#171717',
+        ink: {
+          DEFAULT: '#1A1816',
+          muted: '#57534E',
+          soft: '#78716C',
+          subtle: '#A8A29E',
         },
-        // Accents
-        accent: {
-          green: '#00D6A3',  // Signature brand color
-          cyan: '#22C7D8',   // Secondary accent
-          purple: '#9B8AFB', // Rare highlight
+        burnt: {
+          DEFAULT: '#C4622D',
+          hover: '#B35524',
+          light: '#F8ECE4',
         },
-        // High-contrast clean typography
-        txt: {
-          primary: '#FFFFFF',
-          secondary: '#A1A1A1',
-          muted: '#666666',
+        hairline: {
+          DEFAULT: '#DDD8CE',
+          subtle: '#EAE6DD',
+          strong: '#C9C3B6',
         }
       },
-      borderColor: {
-        DEFAULT: 'rgba(255, 255, 255, 0.1)',
-        subtle: 'rgba(255, 255, 255, 0.06)',
-        strong: 'rgba(255, 255, 255, 0.18)',
-        hover: 'rgba(255, 255, 255, 0.3)',
-      },
       fontFamily: {
+        serif: ['Newsreader', 'Fraunces', 'Georgia', 'Cambria', 'serif'],
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'monospace'],
       },
-      boxShadow: {
-        'green-glow': '0 0 24px -4px rgba(0, 214, 163, 0.25)',
-        'white-border': '0 0 0 1px rgba(255, 255, 255, 0.1)',
-      }
     },
   },
   plugins: [],
