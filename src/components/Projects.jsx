@@ -4,27 +4,27 @@ import { ArrowUpRight } from 'lucide-react';
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-24 sm:py-32 border-b border-hairline">
+    <section id="projects" className="py-14 sm:py-20 border-b border-hairline">
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         
         {/* Section Header */}
-        <div className="flex items-center gap-3 mb-16">
-          <span className="text-xs font-mono uppercase tracking-widest text-burnt">04</span>
+        <div className="flex items-center gap-3 mb-10 sm:mb-12">
+          <span className="text-xs font-mono uppercase tracking-widest text-burnt">02</span>
           <span className="h-[1px] w-8 bg-hairline" />
-          <span className="text-xs font-mono uppercase tracking-wider text-ink-soft">Selected Projects</span>
+          <span className="text-xs font-mono uppercase tracking-wider text-ink-soft">Projects</span>
         </div>
 
-        <div className="max-w-2xl mb-20">
+        <div className="max-w-2xl mb-12 sm:mb-16">
           <h2 className="font-serif text-3xl sm:text-5xl text-ink font-normal tracking-tight mb-4">
-            Proof of work.
+            Featured projects.
           </h2>
           <p className="text-sm sm:text-base text-ink-muted leading-relaxed font-normal">
-            Full-stack web applications engineered under tight hackathon sprints, focusing on institutional access control, data visualization, and AI matching algorithms.
+            Full-stack web applications built with modern architectures, secure authentication, and practical problem solving.
           </p>
         </div>
 
         {/* Asymmetric Alternating Project Rows */}
-        <div className="space-y-28">
+        <div className="space-y-16 sm:space-y-20">
           {projectsData.map((project, index) => {
             const isEven = index % 2 === 0;
 
@@ -48,7 +48,7 @@ export default function Projects() {
                     {project.title}
                   </h3>
 
-                  {/* Description */}
+                  {/* Description (max 1-2 lines) */}
                   <p className="text-base sm:text-lg text-ink-muted leading-relaxed font-normal">
                     {project.description}
                   </p>
@@ -65,18 +65,6 @@ export default function Projects() {
 
                   {/* Plain text action links */}
                   <div className="pt-4 flex items-center gap-6 text-sm font-medium">
-                    {project.githubUrl && (
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-ink hover:text-burnt transition-colors flex items-center gap-1 border-b border-ink/40 hover:border-burnt pb-0.5"
-                      >
-                        <span>GitHub</span>
-                        <ArrowUpRight className="w-3.5 h-3.5" />
-                      </a>
-                    )}
-
                     {project.liveUrl && (
                       <a
                         href={project.liveUrl}
@@ -85,6 +73,18 @@ export default function Projects() {
                         className="text-burnt hover:text-burnt-hover transition-colors flex items-center gap-1 border-b border-burnt/40 hover:border-burnt pb-0.5"
                       >
                         <span>Live Demo</span>
+                        <ArrowUpRight className="w-3.5 h-3.5" />
+                      </a>
+                    )}
+
+                    {project.githubUrl && (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-ink hover:text-burnt transition-colors flex items-center gap-1 border-b border-ink/40 hover:border-burnt pb-0.5"
+                      >
+                        <span>GitHub</span>
                         <ArrowUpRight className="w-3.5 h-3.5" />
                       </a>
                     )}
@@ -109,28 +109,32 @@ export default function Projects() {
                           Core Architecture
                         </span>
                         <p className="font-serif text-xl sm:text-2xl text-ink leading-snug">
-                          {project.title === 'BudgetWise' 
-                            ? 'Role-based access hierarchy with real-time financial tracking and Chart.js reporting.'
-                            : 'Intelligent heuristic algorithm matching service requests with verified local contractors in real-time.'}
+                          {project.coreArchitecture}
                         </p>
                       </div>
 
                       <div className="pt-6 border-t border-hairline/80 grid grid-cols-2 gap-4 text-xs font-mono">
                         <div>
-                          <span className="text-ink-soft block">{project.constraintLabel || 'SPRINT CONSTRAINT'}</span>
+                          <span className="text-ink-soft block">{project.constraintLabel || 'PROJECT TYPE'}</span>
                           <span className="text-ink font-medium mt-0.5 block">{project.context}</span>
                         </div>
                         <div>
                           <span className="text-ink-soft block">IMPACT / STATUS</span>
-                          <a
-                            href={project.liveUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-burnt hover:underline font-medium mt-0.5 inline-flex items-center gap-1"
-                          >
-                            <span>{project.title === 'BudgetWise' ? 'Deployed & Verified' : '20% Latency Reduction'}</span>
-                            <ArrowUpRight className="w-3 h-3" />
-                          </a>
+                          {project.liveUrl ? (
+                            <a
+                              href={project.liveUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-burnt hover:underline font-medium mt-0.5 inline-flex items-center gap-1"
+                            >
+                              <span>{project.title === 'BudgetWise' ? 'Deployed & Verified' : 'Live Platform'}</span>
+                              <ArrowUpRight className="w-3 h-3" />
+                            </a>
+                          ) : (
+                            <span className="text-ink font-medium mt-0.5 block">
+                              Active Development
+                            </span>
+                          )}
                         </div>
                       </div>
                     </div>

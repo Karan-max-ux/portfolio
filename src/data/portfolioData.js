@@ -5,10 +5,10 @@
 
 export const personalInfo = {
   name: "Karan Singh",
-  title: "MERN Stack Developer & Full-Stack Engineer",
+  title: "MERN Stack Developer & CSE Student",
   heroHeadline: "Hey, I'm Karan.",
-  heroSubheadline: "I build full-stack web applications, solve problems, and occasionally spend way too long debugging one missing semicolon.",
-  metadataLine: "MERN Stack Developer · CSE Student, LPU · Aspiring Software Engineer",
+  heroSubheadline: "I build full-stack web applications and solve problems.",
+  metadataLine: "MERN STACK DEVELOPER · CSE STUDENT",
   statusLine: "Open to internships & developer opportunities",
   location: "Pune, India",
   email: "karansingh2436nda@gmail.com",
@@ -18,16 +18,9 @@ export const personalInfo = {
 };
 
 export const aboutData = {
-  pullQuote: "Turning ideas into functional, resilient software under real-world pressure.",
-  statHighlight: {
-    number: "10+",
-    label: "Production REST APIs designed & deployed"
-  },
   narrative: [
-    "I'm a Computer Science and Engineering student at Lovely Professional University, passionate about building full-stack web applications that solve real problems.",
-    "My focus is the MERN stack — MongoDB, Express.js, React.js, and Node.js — where I enjoy turning ideas into functional, user-friendly products.",
-    "I love hackathons because they push me to build fast and think creatively under pressure.",
-    "I'm always looking to learn, build, and collaborate on projects that challenge me to grow as a developer."
+    "I'm a CSE student and MERN stack developer focused on building practical, scalable web applications.",
+    "Currently learning DSA, Next.js and modern web development while building projects that solve real problems."
   ]
 };
 
@@ -93,46 +86,45 @@ export const projectsData = [
     title: "BudgetWise",
     context: "Group Project",
     constraintLabel: "PROJECT TYPE",
-    description: "Role-based institutional budget management system with secure JWT authentication and Chart.js dashboards for financial analytics.",
-    tech: ["MERN Stack", "JWT", "Chart.js"],
+    description: "Full-stack institutional budget management system with role-based approvals, budget tracking and analytics.",
+    tech: ["React", "Node.js", "Express", "MongoDB"],
     githubUrl: "https://github.com/Parssharma/Blank",
     liveUrl: "https://budegt-wise.vercel.app/login.html",
-    metrics: "Collaborative Build · Financial Visualizations",
-    specimenType: "Fintech Dashboard"
+    metrics: "Collaborative Build · Financial Analytics",
+    specimenType: "Fintech Dashboard",
+    coreArchitecture: "Role-based access hierarchy with budget tracking and Chart.js reporting."
   },
   {
     id: "swiftservice-now",
     title: "SwiftService Now",
     context: "36-Hour Hackathon",
-    description: "A platform connecting users with local service providers, integrating AI-based matching that improved fulfillment time by 20%.",
-    tech: ["AI-Based Matching", "Full Stack Web"],
+    constraintLabel: "SPRINT CONSTRAINT",
+    description: "On-demand local service provider platform with intelligent matching algorithms, improving service fulfillment velocity by 20%.",
+    tech: ["React", "Node.js", "Express", "MongoDB"],
     githubUrl: "https://github.com/Karan-max-ux/swift-service-now",
     liveUrl: "https://swift-service-now.vercel.app/",
-    metrics: "+20% Fulfillment Velocity · 36-Hour Build",
-    specimenType: "AI Matching Platform"
+    metrics: "36-Hour Sprint · AI Matching",
+    specimenType: "AI Matching Platform",
+    coreArchitecture: "Intelligent heuristic algorithm matching service requests with local specialists."
   }
 ];
 
 export const skillsGrouped = [
   {
-    category: "Languages",
-    skills: ["C", "C++", "Java", "JavaScript (ES6+)", "Python", "TypeScript"]
-  },
-  {
     category: "Frontend",
-    skills: ["React.js", "HTML", "CSS"]
+    skills: ["React", "Next.js", "JavaScript", "HTML", "CSS"]
   },
   {
     category: "Backend",
-    skills: ["Node.js", "Express.js", "REST APIs", "JWT"]
+    skills: ["Node.js", "Express", "REST APIs"]
   },
   {
     category: "Database",
-    skills: ["MongoDB", "Mongoose"]
+    skills: ["MongoDB", "MySQL"]
   },
   {
     category: "Tools",
-    skills: ["Git", "GitHub", "Chart.js"]
+    skills: ["Git", "GitHub", "VS Code"]
   }
 ];
 
@@ -156,8 +148,6 @@ export const certificationsData = [
 
 export const navLinks = [
   { name: "About", href: "#about" },
-  { name: "Now", href: "#now" },
-  { name: "Timeline", href: "#timeline" },
   { name: "Projects", href: "#projects" },
   { name: "Skills", href: "#skills" },
   { name: "Contact", href: "#contact" }

@@ -18,11 +18,11 @@ export default function Hero() {
   };
 
   return (
-    <section className="pt-36 sm:pt-44 pb-20 sm:pb-28 border-b border-hairline">
+    <section className="pt-32 sm:pt-38 pb-16 sm:pb-20 border-b border-hairline">
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         
         {/* Two-Column Responsive Layout: Left Hero Content + Right Developer Status Panel */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 xl:gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 xl:gap-12 items-start">
           
           {/* Left-Aligned Asymmetric Hero Container */}
           <div className="lg:col-span-8 max-w-3xl">
@@ -43,19 +43,20 @@ export default function Hero() {
             </p>
 
             {/* Status Line */}
-            <div className="flex items-center gap-2.5 text-xs font-mono text-ink-muted mb-12">
+            <div className="flex items-center gap-2.5 text-xs font-mono text-ink-muted mb-10">
               <span className="w-2 h-2 rounded-full bg-burnt inline-block" />
               <span>{personalInfo.statusLine}</span>
             </div>
 
             {/* Actions: Primary Solid Button + Plain Text Link */}
-            <div className="flex flex-wrap items-center gap-6 mb-16">
+            <div className="flex flex-wrap items-center gap-6">
               <a
                 href="#projects"
                 onClick={(e) => handleScroll(e, '#projects')}
-                className="px-6 py-3.5 bg-ink hover:bg-burnt text-bone text-xs font-medium uppercase tracking-wider transition-colors"
+                className="group inline-flex items-center gap-2 px-6 py-3.5 bg-ink hover:bg-burnt text-bone text-xs font-medium uppercase tracking-wider transition-colors"
               >
-                See My Work
+                <span>See My Work</span>
+                <span className="transition-transform group-hover:translate-x-1">→</span>
               </a>
 
               <a
@@ -68,10 +69,9 @@ export default function Hero() {
               </a>
             </div>
 
-            {/* Social Links as Plain Text at Bottom of Hero */}
-            <div className="pt-8 border-t border-hairline/70 flex items-center gap-6 text-xs font-mono text-ink-soft">
-              <span className="text-ink-subtle">Connect:</span>
-              
+            {/* Subtle Hero Footer Connect Line */}
+            <div className="pt-8 mt-10 border-t border-hairline/70 flex flex-wrap items-center gap-6 text-xs font-mono text-ink-soft">
+              <span className="text-ink-muted">Connect:</span>
               <a
                 href={personalInfo.githubUrl}
                 target="_blank"
@@ -81,9 +81,7 @@ export default function Hero() {
                 <span>GitHub</span>
                 <ArrowUpRight className="w-3 h-3" />
               </a>
-
               <span className="text-hairline">/</span>
-
               <a
                 href={personalInfo.linkedinUrl}
                 target="_blank"
@@ -93,9 +91,7 @@ export default function Hero() {
                 <span>LinkedIn</span>
                 <ArrowUpRight className="w-3 h-3" />
               </a>
-
               <span className="text-hairline">/</span>
-
               <a
                 href={`mailto:${personalInfo.email}`}
                 className="hover:text-burnt transition-colors flex items-center gap-1"
@@ -108,7 +104,7 @@ export default function Hero() {
           </div>
 
           {/* Right-Side Subtle Developer Information Panel */}
-          <div className="lg:col-span-4 lg:pt-12 xl:pt-14 lg:flex lg:justify-end">
+          <div className="lg:col-span-4 lg:pt-8 xl:pt-10 lg:flex lg:justify-end">
             <div className="w-full max-w-xs space-y-6">
               
               {/* Developer Specimen Card */}

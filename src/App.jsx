@@ -2,11 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
-import Now from './components/Now';
-import Timeline from './components/Timeline';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
-import Certifications from './components/Certifications';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
@@ -16,8 +13,6 @@ export default function App() {
   useEffect(() => {
     const sections = [
       'about',
-      'now',
-      'timeline',
       'projects',
       'skills',
       'contact'
@@ -50,32 +45,23 @@ export default function App() {
 
       {/* Main Editorial Flow */}
       <main className="flex-grow">
-        {/* 1. Hero: Left-aligned large serif introduction */}
+        {/* 1. Hero: Left-aligned large serif introduction + right status card */}
         <Hero />
 
-        {/* 2. About: Asymmetric pull-quote + narrative prose */}
+        {/* 2. About: Concise purpose statement */}
         <About />
 
-        {/* 3. Now: Journal-like dated status list */}
-        <Now />
-
-        {/* 4. Timeline: Chronological linear record with embedded experience */}
-        <Timeline />
-
-        {/* 5. Projects: Asymmetric alternating showcases with specimen panels */}
+        {/* 3. Projects: Strongest 3 showcase projects with specimen panels */}
         <Projects />
 
-        {/* 6. Skills: Plain grouped typography rows (no cards or icons) */}
+        {/* 4. Skills: Compact categorized technical competence */}
         <Skills />
 
-        {/* 7. Certifications: Simple editorial bullet list */}
-        <Certifications />
-
-        {/* 8. Contact: Large serif headline, direct email & minimalist form */}
+        {/* 5. Contact: Immediate direct channels and direct email */}
         <Contact />
       </main>
 
-      {/* 9. Minimalist Footer */}
+      {/* Minimalist Footer */}
       <Footer />
     </div>
   );

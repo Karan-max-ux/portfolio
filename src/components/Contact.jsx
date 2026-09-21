@@ -1,21 +1,9 @@
 import React, { useState } from 'react';
 import { personalInfo } from '../data/portfolioData';
-import { ArrowUpRight, Check } from 'lucide-react';
+import { ArrowUpRight, Copy, Check } from 'lucide-react';
 
 export default function Contact() {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [submitted, setSubmitted] = useState(false);
   const [copied, setCopied] = useState(false);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!formData.name || !formData.email || !formData.message) return;
-    const mailto = `mailto:${personalInfo.email}?subject=${encodeURIComponent(
-      `Portfolio Inquiry from ${formData.name}`
-    )}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`)}`;
-    window.location.href = mailto;
-    setSubmitted(true);
-  };
 
   const handleCopy = () => {
     navigator.clipboard.writeText(personalInfo.email);
@@ -24,35 +12,35 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 sm:py-36 border-b border-hairline">
+    <section id="contact" className="py-14 sm:py-20 border-b border-hairline">
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         
         {/* Section Header */}
-        <div className="flex items-center gap-3 mb-16">
-          <span className="text-xs font-mono uppercase tracking-widest text-burnt">07</span>
+        <div className="flex items-center gap-3 mb-10 sm:mb-12">
+          <span className="text-xs font-mono uppercase tracking-widest text-burnt">04</span>
           <span className="h-[1px] w-8 bg-hairline" />
           <span className="text-xs font-mono uppercase tracking-wider text-ink-soft">Contact</span>
         </div>
 
-        {/* Asymmetric Split: Large Typography Left, Flat Form Right */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+        {/* 2-Column Responsive Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-start">
           
-          {/* Left Column: Large Serif Headline, Email & Plain Links */}
-          <div className="lg:col-span-6 space-y-8">
-            <h2 className="font-serif text-5xl sm:text-7xl lg:text-8xl text-ink font-normal tracking-tight leading-none">
-              Let's talk.
+          {/* Left Column: Direct Outreach */}
+          <div className="lg:col-span-7 space-y-8">
+            <h2 className="font-serif text-4xl sm:text-6xl text-ink font-normal tracking-tight leading-[1.1]">
+              Let's build something together.
             </h2>
 
-            <p className="text-base sm:text-lg text-ink-muted leading-relaxed font-normal max-w-lg">
-              I'm always looking to learn, build, and collaborate on projects that challenge me to grow as a developer.
+            <p className="text-lg sm:text-xl text-ink-muted leading-relaxed font-normal max-w-xl">
+              Have a project, opportunity, or idea? I'd love to hear from you.
             </p>
 
-            {/* Large Clickable Email */}
-            <div className="pt-4">
-              <span className="text-xs font-mono uppercase tracking-wider text-ink-soft block mb-2">
+            {/* Direct Email Action */}
+            <div className="pt-2">
+              <span className="text-xs font-mono uppercase tracking-wider text-ink-soft block mb-3">
                 Direct Email
               </span>
-              <div className="flex flex-wrap items-baseline gap-4">
+              <div className="flex flex-wrap items-center gap-4 sm:gap-6">
                 <a
                   href={`mailto:${personalInfo.email}`}
                   className="font-serif text-2xl sm:text-3xl text-ink hover:text-burnt transition-colors border-b border-hairline hover:border-burnt pb-1"
@@ -61,25 +49,33 @@ export default function Contact() {
                 </a>
                 <button
                   onClick={handleCopy}
-                  className="text-xs font-mono text-ink-soft hover:text-burnt transition-colors underline"
-                  title="Copy to clipboard"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 border border-hairline hover:border-burnt text-xs font-mono text-ink-muted hover:text-burnt transition-colors"
+                  title="Copy email to clipboard"
                 >
-                  {copied ? 'Copied!' : 'Copy'}
+                  {copied ? (
+                    <>
+                      <Check className="w-3.5 h-3.5 text-burnt" />
+                      <span>Copied</span>
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="w-3.5 h-3.5" />
+                      <span>Copy</span>
+                    </>
+                  )}
                 </button>
               </div>
             </div>
 
-            {/* Plain Text Links Below (No Icon Buttons) */}
-            <div className="pt-8 border-t border-hairline/80 flex items-center gap-8 text-xs font-mono text-ink-soft">
-              <span className="text-ink-subtle">Network:</span>
+            {/* Direct Channels */}
+            <div className="pt-8 border-t border-hairline flex flex-wrap items-center gap-8 text-xs font-mono text-ink-soft">
+              <span className="text-ink-subtle">Channels:</span>
               
               <a
-                href={personalInfo.linkedinUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-ink hover:text-burnt transition-colors flex items-center gap-1 border-b border-transparent hover:border-burnt pb-0.5"
+                href={`mailto:${personalInfo.email}`}
+                className="text-ink hover:text-burnt transition-colors flex items-center gap-1.5 font-medium"
               >
-                <span>LinkedIn</span>
+                <span>Email</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
 
@@ -89,93 +85,51 @@ export default function Contact() {
                 href={personalInfo.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-ink hover:text-burnt transition-colors flex items-center gap-1 border-b border-transparent hover:border-burnt pb-0.5"
+                className="text-ink hover:text-burnt transition-colors flex items-center gap-1.5 font-medium"
               >
                 <span>GitHub</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
-            </div>
 
+              <span className="text-hairline">/</span>
+
+              <a
+                href={personalInfo.linkedinUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-ink hover:text-burnt transition-colors flex items-center gap-1.5 font-medium"
+              >
+                <span>LinkedIn</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
+            </div>
           </div>
 
-          {/* Right Column: Flat Minimalist Form (No Drop Shadows, 1px Hairline Borders) */}
-          <div className="lg:col-span-6 bg-bone-dark/40 border border-hairline p-8 sm:p-10">
-            <h3 className="font-serif text-2xl text-ink font-normal mb-2">
-              Send a note
-            </h3>
-            <p className="text-xs font-mono text-ink-soft mb-8">
-              Replies dispatched to your email client.
-            </p>
-
-            {submitted ? (
-              <div className="p-6 bg-bone border border-hairline text-center space-y-2">
-                <p className="font-serif text-xl text-ink font-normal">Thank you.</p>
-                <p className="text-xs font-mono text-ink-muted">
-                  Your mail client has been opened with your pre-filled inquiry.
-                </p>
-                <button
-                  onClick={() => setSubmitted(false)}
-                  className="mt-4 text-xs font-mono text-burnt underline"
-                >
-                  Send another message
-                </button>
+          {/* Right Column: Balanced Collaboration & Availability Card */}
+          <div className="lg:col-span-5 lg:pt-4">
+            <div className="bg-bone-dark/40 border border-hairline p-7 sm:p-8 space-y-6">
+              <div className="flex items-center justify-between pb-3 border-b border-hairline/80 text-xs font-mono">
+                <span className="text-ink-soft uppercase tracking-wider text-[11px]">COLLABORATION NOTE</span>
+                <span className="w-2 h-2 rounded-full bg-burnt inline-block" />
               </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
+
+              <div className="space-y-4 text-xs font-mono">
                 <div>
-                  <label htmlFor="contact-name" className="block text-xs font-mono uppercase tracking-wider text-ink-soft mb-2">
-                    Name
-                  </label>
-                  <input
-                    id="contact-name"
-                    type="text"
-                    required
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full bg-bone border border-hairline px-4 py-3 text-sm text-ink placeholder:text-ink-subtle focus:outline-none focus:border-burnt transition-colors rounded-none"
-                    placeholder="Your name"
-                  />
+                  <span className="text-ink-soft block mb-1 uppercase tracking-wider text-[11px]">Primary Inquiries</span>
+                  <p className="font-serif text-base text-ink font-normal leading-snug">Full-Stack Roles, Internships & Collaborative Sprints</p>
                 </div>
 
-                <div>
-                  <label htmlFor="contact-email" className="block text-xs font-mono uppercase tracking-wider text-ink-soft mb-2">
-                    Email
-                  </label>
-                  <input
-                    id="contact-email"
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full bg-bone border border-hairline px-4 py-3 text-sm text-ink placeholder:text-ink-subtle focus:outline-none focus:border-burnt transition-colors rounded-none"
-                    placeholder="your@email.com"
-                  />
+                <div className="pt-3 border-t border-hairline/60">
+                  <span className="text-ink-soft block mb-1 uppercase tracking-wider text-[11px]">Turnaround</span>
+                  <p className="text-ink-muted">Replies sent directly to your inbox, usually within 24 hours.</p>
                 </div>
 
-                <div>
-                  <label htmlFor="contact-message" className="block text-xs font-mono uppercase tracking-wider text-ink-soft mb-2">
-                    Message
-                  </label>
-                  <textarea
-                    id="contact-message"
-                    required
-                    rows={4}
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full bg-bone border border-hairline px-4 py-3 text-sm text-ink placeholder:text-ink-subtle focus:outline-none focus:border-burnt transition-colors rounded-none resize-none"
-                    placeholder="Project details or inquiry..."
-                  />
+                <div className="pt-3 border-t border-hairline/60">
+                  <span className="text-ink-soft block mb-1 uppercase tracking-wider text-[11px]">Location</span>
+                  <p className="text-ink-muted">India (Open to remote engineering worldwide)</p>
                 </div>
-
-                <button
-                  type="submit"
-                  className="w-full py-3.5 bg-ink hover:bg-burnt text-bone text-xs font-medium uppercase tracking-wider transition-colors"
-                >
-                  Send Message
-                </button>
-              </form>
-            )}
-
+              </div>
+            </div>
           </div>
 
         </div>

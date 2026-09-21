@@ -3,42 +3,62 @@ import { aboutData } from '../data/portfolioData';
 
 export default function About() {
   return (
-    <section id="about" className="py-24 sm:py-32 border-b border-hairline">
+    <section id="about" className="py-12 sm:py-16 border-b border-hairline">
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         
-        {/* Section Index Marker */}
-        <div className="flex items-center gap-3 mb-16">
-          <span className="text-xs font-mono uppercase tracking-widest text-burnt">01</span>
-          <span className="h-[1px] w-8 bg-hairline" />
-          <span className="text-xs font-mono uppercase tracking-wider text-ink-soft">About Karan</span>
-        </div>
-
-        {/* Asymmetric Two-Column Editorial Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
           
-          {/* Left Column: Pull-Quote & Stat Highlight (4 cols) */}
-          <div className="lg:col-span-5 space-y-10">
-            <blockquote className="font-serif text-2xl sm:text-3xl text-ink leading-snug italic font-normal">
-              &ldquo;{aboutData.pullQuote}&rdquo;
-            </blockquote>
-
-            <div className="pt-8 border-t border-hairline">
-              <div className="font-serif text-4xl sm:text-5xl text-burnt font-normal mb-2">
-                {aboutData.statHighlight.number}
+          {/* Left Column: Marker, Section Title & Profile Photo */}
+          <div className="lg:col-span-4 flex flex-row sm:flex-col items-center sm:items-start justify-between sm:justify-start gap-4 sm:gap-6">
+            <div>
+              <div className="flex items-center gap-3 mb-2">
+                <span className="text-xs font-mono uppercase tracking-widest text-burnt">01</span>
+                <span className="h-[1px] w-8 bg-hairline" />
+                <span className="text-xs font-mono uppercase tracking-wider text-ink-soft">About</span>
               </div>
-              <p className="text-xs font-mono uppercase tracking-wider text-ink-soft">
-                {aboutData.statHighlight.label}
-              </p>
+              <h2 className="font-serif text-2xl sm:text-3xl text-ink font-normal tracking-tight">
+                About me.
+              </h2>
+            </div>
+
+            {/* Circular Profile Portrait */}
+            <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-hairline p-1 bg-bone-dark/40 shadow-sm flex-shrink-0">
+              <img
+                src="/profile.png"
+                alt="Karan Singh"
+                className="w-full h-full object-cover rounded-full"
+              />
             </div>
           </div>
 
-          {/* Right Column: Flowing Narrative Prose (7 cols) */}
-          <div className="lg:col-span-7 space-y-6 text-base sm:text-lg text-ink-muted leading-relaxed font-normal">
-            {aboutData.narrative.map((paragraph, index) => (
-              <p key={index}>
-                {paragraph}
-              </p>
-            ))}
+          {/* Right Column: Compact Bio + 3 High-Signal Meta Tiles */}
+          <div className="lg:col-span-8 space-y-6">
+            <div className="space-y-4 text-base sm:text-lg text-ink-muted leading-relaxed font-normal">
+              {aboutData.narrative.map((paragraph, index) => (
+                <p key={index}>
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+
+            {/* 3 Compact Profile Metadata Tiles */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6 border-t border-hairline/80 text-xs font-mono">
+              <div>
+                <span className="text-ink-soft block mb-1 uppercase tracking-wider text-[11px]">Education</span>
+                <p className="font-serif text-lg text-ink font-normal leading-snug">B.Tech in CSE</p>
+                <p className="text-ink-muted mt-0.5">Lovely Professional Univ.</p>
+              </div>
+              <div>
+                <span className="text-ink-soft block mb-1 uppercase tracking-wider text-[11px]">Experience</span>
+                <p className="font-serif text-lg text-ink font-normal leading-snug">Full Stack Intern</p>
+                <p className="text-ink-muted mt-0.5">InternsVeda (2024 → Present)</p>
+              </div>
+              <div>
+                <span className="text-ink-soft block mb-1 uppercase tracking-wider text-[11px]">Core Focus</span>
+                <p className="font-serif text-lg text-ink font-normal leading-snug">MERN & Next.js</p>
+                <p className="text-ink-muted mt-0.5">DSA in C++ · Web Apps</p>
+              </div>
+            </div>
           </div>
 
         </div>
