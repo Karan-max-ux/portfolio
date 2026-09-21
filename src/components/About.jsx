@@ -3,26 +3,22 @@ import { aboutData } from '../data/portfolioData';
 
 export default function About() {
   return (
-    <section id="about" className="py-12 sm:py-16 border-b border-hairline">
+    <section id="about" className="py-14 sm:py-20 border-b border-hairline">
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
-          
-          {/* Left Column: Marker, Section Title & Profile Photo */}
-          <div className="lg:col-span-4 flex flex-row sm:flex-col items-center sm:items-start justify-between sm:justify-start gap-4 sm:gap-6">
-            <div>
-              <div className="flex items-center gap-3 mb-2">
-                <span className="text-xs font-mono uppercase tracking-widest text-burnt">01</span>
-                <span className="h-[1px] w-8 bg-hairline" />
-                <span className="text-xs font-mono uppercase tracking-wider text-ink-soft">About</span>
-              </div>
-              <h2 className="font-serif text-2xl sm:text-3xl text-ink font-normal tracking-tight">
-                About me.
-              </h2>
-            </div>
+        {/* Section Header */}
+        <div className="flex items-center gap-3 mb-10 sm:mb-14">
+          <span className="text-xs font-mono uppercase tracking-widest text-burnt">01</span>
+          <span className="h-[1px] w-8 bg-hairline" />
+          <span className="text-xs font-mono uppercase tracking-wider text-ink-soft">About</span>
+        </div>
 
-            {/* Circular Profile Portrait */}
-            <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-hairline p-1 bg-bone-dark/40 shadow-sm flex-shrink-0">
+        {/* 2-Column Balanced Layout: Prominent Photo Left + Bio & Meta Right */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          
+          {/* Left Column: Big Profile Photo with Distinct Border */}
+          <div className="lg:col-span-5 flex justify-center lg:justify-start">
+            <div className="relative w-56 h-56 sm:w-64 sm:h-64 lg:w-72 lg:h-72 rounded-full border-2 border-ink/20 hover:border-burnt transition-colors p-2 bg-bone-dark/40 shadow-sm flex-shrink-0">
               <img
                 src="/profile.png"
                 alt="Karan Singh"
@@ -31,17 +27,22 @@ export default function About() {
             </div>
           </div>
 
-          {/* Right Column: Compact Bio + 3 High-Signal Meta Tiles */}
-          <div className="lg:col-span-8 space-y-6">
-            <div className="space-y-4 text-base sm:text-lg text-ink-muted leading-relaxed font-normal">
-              {aboutData.narrative.map((paragraph, index) => (
-                <p key={index}>
-                  {paragraph}
-                </p>
-              ))}
+          {/* Right Column: Title, Bio & 3 Meta Tiles */}
+          <div className="lg:col-span-7 space-y-6">
+            <div>
+              <h2 className="font-serif text-3xl sm:text-4xl text-ink font-normal tracking-tight mb-4">
+                About me.
+              </h2>
+              <div className="space-y-4 text-base sm:text-lg text-ink-muted leading-relaxed font-normal">
+                {aboutData.narrative.map((paragraph, index) => (
+                  <p key={index}>
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
             </div>
 
-            {/* 3 Compact Profile Metadata Tiles */}
+            {/* 3 Profile Metadata Tiles */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6 border-t border-hairline/80 text-xs font-mono">
               <div>
                 <span className="text-ink-soft block mb-1 uppercase tracking-wider text-[11px]">Education</span>
