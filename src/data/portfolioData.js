@@ -95,17 +95,17 @@ export const projectsData = [
     coreArchitecture: "Role-based access hierarchy with budget tracking and Chart.js reporting."
   },
   {
-    id: "swiftservice-now",
-    title: "SwiftService Now",
-    context: "36-Hour Hackathon",
-    constraintLabel: "SPRINT CONSTRAINT",
-    description: "On-demand local service provider platform with intelligent matching algorithms, improving service fulfillment velocity by 20%.",
-    tech: ["React", "Node.js", "Express", "MongoDB"],
-    githubUrl: "https://github.com/Karan-max-ux/swift-service-now",
-    liveUrl: "https://swift-service-now.vercel.app/",
-    metrics: "36-Hour Sprint · AI Matching",
-    specimenType: "AI Matching Platform",
-    coreArchitecture: "Intelligent heuristic algorithm matching service requests with local specialists."
+    id: "sih-2026",
+    title: "SIH 2026 — Smart India Hackathon Platform",
+    context: "Hackathon Project",
+    constraintLabel: "PROJECT TYPE",
+    description: "Full-stack web platform developed for exploring Smart India Hackathon 2026 problem statements, with structured data, search and filtering functionality, and an interactive project interface.",
+    tech: ["React", "TypeScript", "Node.js", "Tailwind CSS", "REST APIs"],
+    githubUrl: "https://github.com/lord-0011/SIH-2026.git",
+    liveUrl: "https://github.com/lord-0011/SIH-2026.git",
+    metrics: "Structured Data · Search & Filter",
+    specimenType: "Interactive Platform",
+    coreArchitecture: "Full-stack platform for exploring structured problem statements."
   }
 ];
 
