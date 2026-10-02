@@ -6,7 +6,7 @@
 export const personalInfo = {
   name: "Karan Singh",
   title: "MERN Stack Developer & CSE Student",
-  heroHeadline: "Hey, I'm Karan.",
+  heroHeadline: "Hey, I'm Karan",
   heroSubheadline: "I build full-stack web applications and solve problems.",
   metadataLine: "MERN STACK DEVELOPER · CSE STUDENT",
   statusLine: "Open to internships & developer opportunities",
